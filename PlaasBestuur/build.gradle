@@ -1,0 +1,30 @@
+plugins {
+	id 'java'
+	id 'org.openjfx.javafxplugin' version '0.1.0'
+	id 'application'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
+	
+	
+}
+
+application {
+	mainClassName = "koossa.plaasbestuur.PlaasBestuur"
+}
+
+javafx {
+	version = "21.0.3"
+	modules = [	"javafx.base", 
+				"javafx.controls",
+				"javafx.swing",
+				"javafx.fxml",
+				"javafx.graphics",
+				"javafx.web",
+				"javafx.media"]
+}

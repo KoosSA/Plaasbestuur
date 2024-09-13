@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Scene xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane style="-fx-background-color: #ff000033;">
+      <children>
+         <Label layoutX="43.0" layoutY="46.0" text="Scene" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="43.0" AnchorPane.topAnchor="46.0" />
+      </children></AnchorPane>
+</Scene>

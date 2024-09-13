@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Scene xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koossa.plaasbestuur.fxml.RainfallViewController">
+   <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ccccccff;">
+      <top>
+         <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #aaaaaaff; -fx-background-radius: 20; -fx-border-color: #000000ff; -fx-border-width: 2; -fx-border-radius: 20;" text="%rainfallTitle" textAlignment="CENTER">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+            <padding>
+               <Insets bottom="10.0" top="10.0" />
+            </padding>
+         </Label>
+      </top>
+      <left>
+         <VBox BorderPane.alignment="CENTER">
+            <children>
+               <VBox style="-fx-background-color: #bbbbbbff; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #000000ff; -fx-border-width: 2;">
+                  <children>
+                     <Label alignment="TOP_CENTER" contentDisplay="TOP" maxWidth="1.7976931348623157E308" text="%filter" textAlignment="CENTER">
+                        <font>
+                           <Font name="System Bold" size="14.0" />
+                        </font>
+                     </Label>
+                     <GridPane hgap="10.0" vgap="10.0">
+                       <columnConstraints>
+                         <ColumnConstraints hgrow="SOMETIMES" />
+                         <ColumnConstraints hgrow="SOMETIMES" />
+                       </columnConstraints>
+                       <rowConstraints>
+                           <RowConstraints />
+                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                       </rowConstraints>
+                        <children>
+                           <Label text="%location" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                           <ChoiceBox fx:id="filter_location" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           <Label text="%startDate" wrapText="true" GridPane.rowIndex="2">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                           <Label text="%endDate" wrapText="true" GridPane.rowIndex="3">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                           <DatePicker fx:id="filter_startDate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           <DatePicker fx:id="filter_endDate" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        </children>
+                     </GridPane>
+                     <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onFilter" text="%filter">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets left="15.0" right="15.0" top="15.0" />
+                        </VBox.margin>
+                     </Button>
+                  </children>
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+               </VBox>
+               <Separator orientation="VERTICAL" prefHeight="35.0" visible="false" />
+               <VBox style="-fx-border-color: #000000ff; -fx-border-radius: 20; -fx-background-color: #bbbbbbff; -fx-background-radius: 20; -fx-border-width: 2;">
+                  <children>
+                     <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="%statistics">
+                        <font>
+                           <Font name="System Bold" size="14.0" />
+                        </font>
+                     </Label>
+                     <GridPane hgap="5.0" vgap="10.0">
+                       <columnConstraints>
+                         <ColumnConstraints fillWidth="false" hgrow="NEVER" />
+                           <ColumnConstraints hgrow="NEVER" />
+                         <ColumnConstraints hgrow="NEVER" />
+                           <ColumnConstraints hgrow="NEVER" />
+                       </columnConstraints>
+                       <rowConstraints>
+                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                       </rowConstraints>
+                        <children>
+                           <Label text="%seasonAverage" wrapText="true">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="stats_averageFiltered" text="0" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                           <Label text="mm" GridPane.columnIndex="3" GridPane.halignment="LEFT">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                           <Label text=":" GridPane.columnIndex="1">
+                              <font>
+                                 <Font size="14.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </GridPane>
+                  </children>
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+               </VBox>
+            </children>
+            <BorderPane.margin>
+               <Insets top="10.0" />
+            </BorderPane.margin>
+         </VBox>
+      </left>
+      <padding>
+         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      </padding>
+      <right>
+         <VBox alignment="TOP_CENTER" spacing="35.0" BorderPane.alignment="TOP_CENTER">
+            <BorderPane.margin>
+               <Insets top="10.0" />
+            </BorderPane.margin>
+            <children>
+               <VBox style="-fx-background-color: #bbbbbbff; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-border-color: #000000ff;">
+                  <children>
+                     <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="%newEntry">
+                        <font>
+                           <Font name="System Bold" size="14.0" />
+                        </font>
+                     </Label>
+                     <GridPane hgap="10.0" vgap="10.0">
+                       <columnConstraints>
+                         <ColumnConstraints hgrow="ALWAYS" />
+                         <ColumnConstraints hgrow="ALWAYS" />
+                       </columnConstraints>
+                       <rowConstraints>
+                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                         <RowConstraints vgrow="SOMETIMES" />
+                       </rowConstraints>
+                        <children>
+                           <Label text="%date" />
+                           <Label text="%location" GridPane.rowIndex="1" />
+                           <Label maxWidth="1.7976931348623157E308" text="%amount" GridPane.rowIndex="2" />
+                           <DatePicker fx:id="entry_date" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                           <ChoiceBox fx:id="entry_location" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           <TextField fx:id="entry_amount" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        </children>
+                     </GridPane>
+                     <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNewEntry" text="%createNewEntry">
+                        <VBox.margin>
+                           <Insets left="15.0" right="15.0" top="10.0" />
+                        </VBox.margin>
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Button>
+                  </children>
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+               </VBox>
+               <VBox style="-fx-border-color: #000000ff; -fx-border-radius: 20; -fx-background-color: #bbbbbbff; -fx-background-radius: 20; -fx-border-width: 2;">
+                  <children>
+                     <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="%existingEntries">
+                        <font>
+                           <Font name="System Bold" size="14.0" />
+                        </font>
+                     </Label>
+                     <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDeleteEntry" text="%deleteEntry">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets left="15.0" right="15.0" top="10.0" />
+                        </VBox.margin>
+                     </Button>
+                  </children>
+                  <padding>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+               </VBox>
+            </children>
+         </VBox>
+      </right>
+      <center>
+         <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+            <content>
+               <ListView fx:id="entry_container" style="-fx-background-color: #ccccccff;" />
+            </content>
+         </ScrollPane>
+      </center>
+      <bottom>
+         <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="50.0" style="-fx-background-color: #aaaaaaff; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-border-color: #000000ff;">
+            <padding>
+               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <children>
+               <Button alignment="CENTER" minWidth="150.0" mnemonicParsing="false" text="Export Data">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Button>
+               <Button minWidth="150.0" mnemonicParsing="false" text="Show Graph">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Button>
+               <Button minWidth="150.0" mnemonicParsing="false" text="Main Menu">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Button>
+            </children>
+         </FlowPane>
+      </bottom>
+   </BorderPane>
+</Scene>
