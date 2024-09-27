@@ -42,6 +42,8 @@ public class RainfallViewController {
 	@FXML
 	Label stats_averageFiltered;
 	@FXML
+	Label stats_totalFiltered;
+	@FXML
 	ListView<RainEntry> entry_container;
 	
 	private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -71,9 +73,10 @@ public class RainfallViewController {
 		for (int i = 0; i < filteredEntries.size(); i++) {
 			ave += filteredEntries.get(i).amount;
 		}
+		stats_totalFiltered.setText(String.valueOf(Math.round(ave * 100.0) / 100.0));
 		ave = ave / (double) filteredEntries.size();
 		if (ave == Double.NaN) ave = 0;
-		stats_averageFiltered.setText(String.valueOf(Math.round(ave*100.0)/100.0));
+		stats_averageFiltered.setText(String.valueOf(Math.round(ave * 100.0)/100.0));
 	}
 	
 	public void onNewEntry() {
@@ -98,7 +101,7 @@ public class RainfallViewController {
 		pop.initStyle(StageStyle.UTILITY);
 		pop.initModality(Modality.APPLICATION_MODAL);
 		pop.setScene(chartScene);
-		RainfallChartViewController.onShowingChart();
+		RainfallChartViewController.onShowingChart(filter_startDate.getValue(), filter_endDate.getValue());
 		pop.centerOnScreen();
 		pop.showAndWait();
 	}
