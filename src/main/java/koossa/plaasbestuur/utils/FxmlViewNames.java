@@ -6,7 +6,9 @@ public enum FxmlViewNames {
 	DEBUG_VIEW("debugView.fxml"),
 	LOGIN_VIEW("loginView.fxml"),
 	REGISTER_VIEW("registerView.fxml"),
-	RAINFALL_VIEW("rainfallView.fxml");
+	RAINFALL_VIEW("rainfallView.fxml"),
+	RAINFALL_CHART_VIEW("rainfallChartView.fxml");
+	
 
 	FxmlViewNames(String string) {
 		data = string;
