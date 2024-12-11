@@ -7,7 +7,8 @@ public enum FxmlViewNames {
 	LOGIN_VIEW("loginView.fxml"),
 	REGISTER_VIEW("registerView.fxml"),
 	RAINFALL_VIEW("rainfallView.fxml"),
-	RAINFALL_CHART_VIEW("rainfallChartView.fxml");
+	RAINFALL_CHART_VIEW("rainfallChartView.fxml"),
+	LOCATIONS_EDIT_VIEW("locationsEditView.fxml");
 	
 
 	FxmlViewNames(String string) {

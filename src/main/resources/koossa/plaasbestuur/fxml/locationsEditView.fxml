@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<Scene xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koossa.plaasbestuur.fxml.LocationsEditViewController">
+   <BorderPane style="-fx-background-color: #ccccccff;">
+      <top>
+         <FlowPane alignment="CENTER" hgap="10.0" style="-fx-background-color: #aaaaaaff; -fx-border-width: 2; -fx-border-color: #000000ff;" BorderPane.alignment="CENTER">
+            <children>
+               <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                  <image>
+                     <Image url="@../images/pencil2.png" />
+                  </image>
+                  <rotationAxis>
+                     <Point3D y="1.0" />
+                  </rotationAxis>
+               </ImageView>
+               <Label text="%locationsEdit">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+               </Label>
+               <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../images/pencil2.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </FlowPane>
+      </top>
+      <padding>
+         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </padding>
+      <bottom>
+         <FlowPane alignment="CENTER" hgap="35.0" style="-fx-background-color: #aaaaaaff; -fx-border-width: 2; -fx-border-color: #000000ff;" BorderPane.alignment="CENTER">
+            <children>
+               <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#onRemove" prefHeight="100.0" prefWidth="100.0" text="%remove">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+                  <graphic>
+                     <ImageView fitHeight="55.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/heavy_minus_sign.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button>
+               <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#onAdd" prefHeight="100.0" prefWidth="100.0" text="%add">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+                  <graphic>
+                     <ImageView fitHeight="55.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/heavy_plus_sign.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button>
+            </children>
+            <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+         </FlowPane>
+      </bottom>
+      <center>
+         <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+               <Insets bottom="10.0" left="10.0" top="10.0" />
+            </BorderPane.margin>
+            <content>
+               <ListView fx:id="locations" style="-fx-background-color: #ccccccff;" />
+            </content>
+         </ScrollPane>
+      </center>
+   </BorderPane>
+</Scene>
