@@ -163,6 +163,14 @@
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/rainfallView.fxml\\E"
   },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/registerView.fxml\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/lang\/afr.properties\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/lang\/afr_en.properties\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/lang\/afr_en_ZA.properties\\E"
+  },{
     "pattern":"\\Qkoossa\/plaasbestuur\/lang\/eng_uk.properties\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/lang\/eng_uk_en.properties\\E"
@@ -367,6 +375,8 @@
   },{
     "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/IntrinsicStubsGen.class\\E"
   },{
+    "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/UnwindExceptionToCallerStub.class\\E"
+  },{
     "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/nodes\/PiNode.class\\E"
   },{
     "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/nodes\/java\/DynamicNewArrayNode.class\\E"
@@ -410,6 +420,9 @@
     "locales":["en-ZA","und"]
   },{
     "name":"com\/sun\/javafx\/scene\/control\/skin\/resources\/controls-nt",
+    "locales":["en-ZA"]
+  },{
+    "name":"koossa\/plaasbestuur\/lang\/afr",
     "locales":["en-ZA"]
   },{
     "name":"koossa\/plaasbestuur\/lang\/eng_uk",
