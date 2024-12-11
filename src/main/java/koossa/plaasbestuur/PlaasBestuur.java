@@ -24,12 +24,17 @@ public class PlaasBestuur extends Application {
 		
 		switchView(FxmlViewNames.LOGIN_VIEW);
 		
+		stage.setTitle(FxmlViewManager.getLanguageBundle().getString("appTitle"));
 		stage.show();
+		stage.centerOnScreen();
+		stage.requestFocus();
+		stage.toFront();
 	}
 	
 	public static void switchView(FxmlViewNames viewName) {
 		currentView = viewName;
 		stage.setScene(FxmlViewManager.getScene(viewName));
+		stage.centerOnScreen();
 	}
 	
 	public static void setLanguage(Language language) {
@@ -37,6 +42,7 @@ public class PlaasBestuur extends Application {
 			return;
 		}
 		FxmlViewManager.switchLanguage(language, currentView);
+		stage.setTitle(FxmlViewManager.getLanguageBundle().getString("appTitle"));
 	}
 	
 	public static FxmlViewNames getCurrentView() {

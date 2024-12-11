@@ -14,11 +14,12 @@ public class FxmlViewManager {
 	
 	private static Map<FxmlViewNames, Scene> views = new HashMap<FxmlViewNames, Scene>();
 	private static Language selectedLang = Language.ENGLISH_UK;
+	private static ResourceBundle bundle = ResourceBundle.getBundle("koossa/plaasbestuur/lang/" + selectedLang.getData());
 	
 	private static <T> Scene loadView(String name) throws IOException {
 		Scene scn = null;
 		
-		ResourceBundle bundle = ResourceBundle.getBundle("koossa/plaasbestuur/lang/" + selectedLang.getData());
+		bundle = ResourceBundle.getBundle("koossa/plaasbestuur/lang/" + selectedLang.getData());
 		
 		T obj = FXMLLoader.load(PlaasBestuur.class.getResource("fxml/" + name), bundle);
 		if (obj.getClass().equals(Scene.class)) {
@@ -51,6 +52,10 @@ public class FxmlViewManager {
 		selectedLang = language;
 		
 		PlaasBestuur.switchView(currentView);
+	}
+	
+	public static ResourceBundle getLanguageBundle() {
+		return bundle;
 	}
 
 }
