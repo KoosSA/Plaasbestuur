@@ -2,6 +2,7 @@ package koossa.plaasbestuur.fxml;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.Comparator;
 
 import javafx.collections.FXCollections;
@@ -84,6 +85,7 @@ public class RainfallViewController {
 	public void onNewEntry() {
 		//entry_container.getChildren().add(new RainEntry(entry_date.getValue(), entry_location.getValue(), entry_amount.getText()));
 		entries.add(new RainEntry(entry_date.getValue(), entry_location.getValue(), entry_amount.getText()));
+		Collections.sort(entries, (a,b)->a.date.compareTo(b.date));
 		entries.sort(rainEntrySorter);
 		onFilter();
 	}
