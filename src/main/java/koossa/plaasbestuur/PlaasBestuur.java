@@ -22,7 +22,7 @@ public class PlaasBestuur extends Application {
 	public void start(Stage stage) throws Exception {
 		PlaasBestuur.stage = stage;
 		
-		switchView(FxmlViewNames.DEBUG_VIEW);
+		switchView(FxmlViewNames.LOGIN_VIEW);
 		
 		stage.show();
 	}

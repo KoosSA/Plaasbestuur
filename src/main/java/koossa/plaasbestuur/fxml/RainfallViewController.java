@@ -20,6 +20,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import koossa.plaasbestuur.PlaasBestuur;
 import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
 
@@ -62,7 +63,6 @@ public class RainfallViewController {
 	public void onFilter() {
 		filteredEntries.clear();
 		if (filter_endDate.getValue() != null && filter_startDate.getValue() != null) {
-			System.out.println("Valid dates");
 			entries.forEach(value -> {
 				if (koossa.plaasbestuur.utils.Filter.onFilterByDate(filter_startDate.getValue(), filter_endDate.getValue(), value.date))
 					filteredEntries.add(value);
@@ -109,7 +109,7 @@ public class RainfallViewController {
 	}
 	
 	public void onMainMenu () {
-		
+		PlaasBestuur.switchView(FxmlViewNames.MAIN_APP_VIEW);
 	}
 	
 	public void onExportData() {
