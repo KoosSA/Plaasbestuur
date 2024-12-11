@@ -1,0 +1,1 @@
+%GRAALVM_HOME%/bin/java.exe -jar

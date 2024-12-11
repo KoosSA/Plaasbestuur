@@ -14,6 +14,10 @@ public class PlaasBestuur extends Application {
 	private static FxmlViewNames currentView;
 	private static Preferences preferences = Preferences.userNodeForPackage(PlaasBestuur.class);
 
+	public static void main(String[] args) {
+		PlaasBestuur.launch(args);
+	}
+	
 	@Override
 	public void start(Stage stage) throws Exception {
 		PlaasBestuur.stage = stage;

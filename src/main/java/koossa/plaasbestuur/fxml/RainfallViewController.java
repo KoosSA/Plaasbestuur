@@ -53,8 +53,10 @@ public class RainfallViewController {
 	
 	public void initialize() {
 		entry_date.setValue(LocalDate.now());
-		//filter_endDate.setValue(LocalDate.now());
+		filter_endDate.setValue(LocalDate.now());
+		filter_startDate.setValue(LocalDate.of(LocalDate.now().getYear() - 1 , LocalDate.now().getMonthValue(), LocalDate.now().getDayOfMonth()));
 		entry_container.setItems(filteredEntries);
+		onFilter();
 	}
 	
 	public void onFilter() {

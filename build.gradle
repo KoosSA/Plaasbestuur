@@ -2,6 +2,8 @@ plugins {
 	id 'java'
 	id 'org.openjfx.javafxplugin' version '0.1.0'
 	id 'application'
+	id 'com.gluonhq.gluonfx-gradle-plugin' version '1.0.23'
+	id 'eclipse'
 }
 
 repositories {
@@ -15,7 +17,7 @@ dependencies {
 }
 
 application {
-	mainClassName = "koossa.plaasbestuur.PlaasBestuur"
+	mainClassName = "koossa.plaasbestuur.Launcher"
 }
 
 javafx {
