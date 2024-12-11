@@ -1,5 +1,7 @@
 package koossa.plaasbestuur.fxml;
 
+import java.util.prefs.BackingStoreException;
+
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -29,6 +31,17 @@ public class DebugViewController {
 	
 	public void onSwitchLanguage() {
 		PlaasBestuur.setLanguage(languageChooser.getValue());
+	}
+	
+	public void onDeleteAccount() {
+		try {
+			PlaasBestuur.getPreferences().clear();
+			PlaasBestuur.getPreferences().flush();
+			PlaasBestuur.switchView(FxmlViewNames.LOGIN_VIEW);
+		} catch (BackingStoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

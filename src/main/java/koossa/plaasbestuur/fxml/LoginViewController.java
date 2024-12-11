@@ -2,6 +2,7 @@ package koossa.plaasbestuur.fxml;
 
 import java.util.prefs.BackingStoreException;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
@@ -26,8 +27,12 @@ public class LoginViewController {
 		}
 	}
 	
+	public void onRegister() {
+		PlaasBestuur.switchView(FxmlViewNames.REGISTER_VIEW);
+	}
+	
 	public void onCancel() {
-		
+		Platform.exit();
 	}
 	
 	public void onLogin() {

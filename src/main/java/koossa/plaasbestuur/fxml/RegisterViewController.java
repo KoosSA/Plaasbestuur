@@ -22,7 +22,7 @@ public class RegisterViewController {
 	Button register_btn;
 	
 	public void onCancel() {
-		
+		PlaasBestuur.switchView(FxmlViewNames.LOGIN_VIEW);
 	}
 	
 	public void onPasswordChangeListener() {
