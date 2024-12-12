@@ -155,6 +155,8 @@
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/debugView.fxml\\E"
   },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/locationsEditView.fxml\\E"
+  },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/loginView.fxml\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/mainView.fxml\\E"
@@ -210,6 +212,8 @@
     "pattern":"java.base:\\Qjdk\/internal\/icu\/impl\/data\/icudt72b\/ubidi.icu\\E"
   },{
     "pattern":"java.base:\\Qjdk\/internal\/icu\/impl\/data\/icudt74b\/ubidi.icu\\E"
+  },{
+    "pattern":"java.base:\\Qsun\/text\/resources\/WordBreakIteratorData\\E"
   },{
     "pattern":"java.logging:\\Qsun\/util\/logging\/resources\/logging_en.properties\\E"
   },{

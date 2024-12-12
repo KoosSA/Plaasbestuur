@@ -1,5 +1,29 @@
 {
   "types":[
+    {
+      "name":"java.lang.String"
+    },
+    {
+      "name":"java.time.LocalDate"
+    },
+    {
+      "name":"java.time.Ser"
+    },
+    {
+      "name":"java.util.ArrayList"
+    },
+    {
+      "name":"java.util.HashMap"
+    },
+    {
+      "name":"koossa.plaasbestuur.data.rain.RainEntry"
+    },
+    {
+      "name":"koossa.plaasbestuur.data.rain.Rainfall"
+    },
+    {
+      "name":"koossa.plaasbestuur.data.utils.Savable"
+    }
   ],
   "lambdaCapturingTypes":[
   ],
