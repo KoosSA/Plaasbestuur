@@ -3,6 +3,7 @@ package koossa.plaasbestuur.fxml;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
+import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -101,9 +102,18 @@ public class RainfallViewController {
 		entries.add(new RainEntry(entry_date.getValue(), entry_location.getValue(), entry_amount.getText()));
 		Collections.sort(entries, (a,b)->a.date.compareTo(b.date));
 		onFilter();
+		UserData.getRainfallData().save();
 	}
 	
 	public void onDeleteEntry() {
+		RainEntry toremove = entry_container.getSelectionModel().getSelectedItem();
+		List<koossa.plaasbestuur.data.rain.RainEntry> list = UserData.getRainfallData().getRainEntriesByLocation(toremove.location);
+		for (int i =0; i < list.size(); i++) {
+			if (list.get(i).getDate().isEqual(toremove.date) && list.get(i).getAmount() == toremove.amount) {
+				list.remove(i);
+			}
+		}
+		UserData.getRainfallData().save();
 		int index = entry_container.getSelectionModel().getSelectedIndex();
 		if (index != -1) {
 			entries.remove(index);
