@@ -57,6 +57,18 @@
                      </ImageView>
                   </graphic>
                </Button>
+               <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#onEdit" prefHeight="100.0" prefWidth="100.0" text="%edit">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+                  <graphic>
+                     <ImageView fitHeight="48.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/pencil2.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button>
                <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#onAdd" prefHeight="100.0" prefWidth="100.0" text="%add">
                   <font>
                      <Font size="14.0" />

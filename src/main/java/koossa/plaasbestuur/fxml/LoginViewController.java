@@ -44,6 +44,7 @@ public class LoginViewController {
 				} catch (BackingStoreException e) {
 					e.printStackTrace();
 				}
+				PlaasBestuur.setCurrentUser(username_field.getText());
 				PlaasBestuur.switchView(FxmlViewNames.MAIN_APP_VIEW);
 			}
 		}

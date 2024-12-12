@@ -13,6 +13,7 @@ public class PlaasBestuur extends Application {
 	private static Stage stage;
 	private static FxmlViewNames currentView;
 	private static Preferences preferences = Preferences.userNodeForPackage(PlaasBestuur.class);
+	private static String currentUser;
 
 	public static void main(String[] args) {
 		PlaasBestuur.launch(args);
@@ -53,5 +54,11 @@ public class PlaasBestuur extends Application {
 		return preferences;
 	}
 
+	public static String getCurrentUser() {
+		return currentUser;
+	}
 	
+	public static void setCurrentUser(String currentUser) {
+		PlaasBestuur.currentUser = currentUser;
+	}
 }

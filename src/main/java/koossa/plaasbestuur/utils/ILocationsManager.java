@@ -10,4 +10,6 @@ public interface ILocationsManager {
 	
 	List<String> getLocations();
 
+	void renameLocation(String locToChange, String newName);
+
 }

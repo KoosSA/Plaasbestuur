@@ -1,6 +1,5 @@
 package koossa.plaasbestuur.fxml;
 
-import java.util.Collections;
 import java.util.Optional;
 
 import javafx.fxml.FXML;
@@ -23,7 +22,7 @@ public class LocationsEditViewController {
 	public void onAdd() {
 		TextInputDialog tid = new TextInputDialog();
 		Optional<String> loc = tid.showAndWait();
-		if (loc.get() != null) {
+		if (loc.isPresent()) {
 			locManager.addLocation(loc.get());
 			instance.locations.getItems().add(loc.get());
 		}
@@ -35,6 +34,22 @@ public class LocationsEditViewController {
 			if (locManager.removeLocation(loc)) {
 				instance.locations.getItems().remove(loc);
 			};
+		}
+	}
+	
+	public void onEdit() {
+		String locToChange = locations.getSelectionModel().getSelectedItem();
+		if (locToChange != null) {
+			TextInputDialog tid = new TextInputDialog();
+			tid.setHeaderText("Edit location");
+			tid.setContentText("Change " + locToChange + " to:");
+			Optional<String> loc = tid.showAndWait();
+			if (loc.get() != null) {
+				locations.getItems().remove(locToChange);
+				locations.getItems().add(loc.get());
+				locManager.renameLocation(locToChange, loc.get());
+				RainfallViewController.getInstance().changeLocationName(locToChange, loc.get());
+			}
 		}
 	}
 	

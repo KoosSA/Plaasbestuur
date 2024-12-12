@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 <Scene xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koossa.plaasbestuur.fxml.MainMenuViewController">
-   <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #ccccccff;">
+   <BorderPane style="-fx-background-color: #ccccccff;">
       <top>
          <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #aaaaaaff; -fx-border-color: #000000ff; -fx-border-width: 2;" text="%mainMenu" BorderPane.alignment="CENTER">
             <font>
@@ -29,10 +29,10 @@
       <center>
          <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" BorderPane.alignment="CENTER">
             <BorderPane.margin>
-               <Insets bottom="10.0" right="10.0" top="10.0" />
+               <Insets bottom="10.0" top="10.0" />
             </BorderPane.margin>
             <content>
-               <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" hgap="20.0" style="-fx-background-color: #aaaaaaff; -fx-border-color: #000000ff; -fx-border-width: 2;" vgap="20.0">
+               <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" hgap="20.0" prefWrapLength="480.0" style="-fx-background-color: #aaaaaaff; -fx-border-color: #000000ff; -fx-border-width: 2;" vgap="20.0">
                   <children>
                      <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="10.0" mnemonicParsing="false" onAction="#onRainfall" prefHeight="100.0" prefWidth="100.0" text="%rainfallTitle">
                         <font>

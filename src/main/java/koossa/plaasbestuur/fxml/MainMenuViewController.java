@@ -2,6 +2,7 @@ package koossa.plaasbestuur.fxml;
 
 import javafx.application.Platform;
 import koossa.plaasbestuur.PlaasBestuur;
+import koossa.plaasbestuur.data.utils.UserData;
 import koossa.plaasbestuur.utils.FxmlViewNames;
 
 public class MainMenuViewController {

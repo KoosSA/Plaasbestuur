@@ -1,9 +1,11 @@
 package koossa.plaasbestuur.data.rain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class RainEntry {
+public class RainEntry implements Serializable {
 	
+	private static final long serialVersionUID = -5108236343302630169L;
 	private double amount;
 	private LocalDate date;
 	private String location;
@@ -24,6 +26,10 @@ public class RainEntry {
 	
 	public String getLocation() {
 		return location;
+	}
+
+	public void setLoacation(String location) {
+		this.location = location;
 	}
 	
 
