@@ -10,6 +10,9 @@
   "methods":[{"name":"notifyThemeChanged","parameterTypes":["java.lang.String"] },{"name":"reportException","parameterTypes":["java.lang.Throwable"] }]
 },
 {
+  "type":"com.sun.glass.ui.Application"
+},
+{
   "type":"com.sun.glass.ui.Clipboard",
   "fields":[{"name":"name"}],
   "methods":[{"name":"actionPerformed","parameterTypes":["int"] },{"name":"contentChanged","parameterTypes":[] }]
