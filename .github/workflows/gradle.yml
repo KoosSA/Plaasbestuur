@@ -40,7 +40,7 @@ jobs:
 
     - name: Copy natives to staging dir
       run: |
-        cp -r target/gluonfx/x86_64-windows/Plaasbestuur.exe staging
+        cp -r build/gluonfx/x86_64-windows/Plaasbestuur.exe staging
 
     - name: Upload
       uses: actions/upload-artifact@v4
