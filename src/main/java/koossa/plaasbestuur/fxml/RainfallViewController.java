@@ -11,11 +11,11 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
@@ -31,18 +31,6 @@ public class RainfallViewController {
 	@FXML
 	Scene scene;
 	@FXML
-	DatePicker filter_startDate;
-	@FXML
-	DatePicker filter_endDate;
-	@FXML
-	ChoiceBox<String> filter_location;
-	@FXML
-	DatePicker entry_date;
-	@FXML
-	ChoiceBox<String> entry_location;
-	@FXML
-	TextField entry_amount;
-	@FXML
 	Label stats_averageFiltered;
 	@FXML
 	Label stats_totalFiltered;
@@ -52,34 +40,52 @@ public class RainfallViewController {
 	private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	private ObservableList<RainEntry> entries = FXCollections.observableArrayList();
 	protected static ObservableList<RainEntry> filteredEntries = FXCollections.observableArrayList();
-	private Scene chartScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_CHART_VIEW);
+	private Scene filterScene;// = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_FILTER_VIEW);
+//	private Scene statsScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_STATS_VIEW);
+	private Scene newEntryScene;// = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_NEW_ENTRY_VIEW);
+	private Scene chartScene;// = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_CHART_VIEW);
 	private static RainfallViewController instance;
+	private LocalDate filterStartDate = LocalDate.of(LocalDate.now().getYear() - 1 , LocalDate.now().getMonthValue(), LocalDate.now().getDayOfMonth());
+	private LocalDate filterEndDate = LocalDate.now();
+	private String filterLocation;
 	
 	public void initialize() {
+		UserData.getRainfallData().load();
 		RainfallViewController.instance = this;
 		try {
-			UserData.getRainfallData().load();
-			filter_location.getItems().addAll(UserData.getRainfallData().getLocations());
-			entry_location.getItems().addAll(UserData.getRainfallData().getLocations());
+			
 			UserData.getRainfallData().getRainEntries().values().forEach(list -> {
 				list.forEach(entry  -> {
 					entries.add(new RainEntry(entry.getDate(), entry.getLocation(), Double.toString(entry.getAmount())));
 				});
 			});
+			filterLocation = entries.getFirst().location;
 		} catch(Exception e) {}
-		entry_date.setValue(LocalDate.now());
-		filter_endDate.setValue(LocalDate.now());
-		filter_startDate.setValue(LocalDate.of(LocalDate.now().getYear() - 1 , LocalDate.now().getMonthValue(), LocalDate.now().getDayOfMonth()));
+		filterScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_FILTER_VIEW);
+//		statsScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_STATS_VIEW);
+		newEntryScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_NEW_ENTRY_VIEW);
+		chartScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_CHART_VIEW);
 		entry_container.setItems(filteredEntries);
 		onFilter();
 	}
 	
-	public void onFilter() {
+	public void showFilter() {
+		Stage pop = new Stage();
+		pop.setScene(filterScene);
+		pop.initModality(Modality.APPLICATION_MODAL);
+		pop.initOwner(scene.getWindow());
+		pop.initStyle(StageStyle.UTILITY);
+		pop.centerOnScreen();
+		RainfallFilterViewController.getInstance().setStage(pop);
+		pop.showAndWait();
+	}
+	
+	protected void onFilter() {
 		filteredEntries.clear();
-		if (filter_endDate.getValue() != null && filter_startDate.getValue() != null && filter_location.getValue() != null) {
+		if (filterEndDate != null && filterStartDate != null && filterLocation != null) {
 			entries.forEach(value -> {
-				if (value.location.equalsIgnoreCase(filter_location.getValue()))
-					if (koossa.plaasbestuur.utils.Filter.onFilterByDate(filter_startDate.getValue(), filter_endDate.getValue(), value.date)) {
+				if (value.location.equalsIgnoreCase(filterLocation))
+					if (koossa.plaasbestuur.utils.Filter.onFilterByDate(filterStartDate, filterEndDate, value.date)) {
 						filteredEntries.add(value);
 					}
 			});
@@ -98,8 +104,18 @@ public class RainfallViewController {
 	}
 	
 	public void onNewEntry() {
-		UserData.getRainfallData().addEntry(new koossa.plaasbestuur.data.rain.RainEntry(entry_date.getValue(), entry_location.getValue(), Double.parseDouble(entry_amount.getText())));
-		entries.add(new RainEntry(entry_date.getValue(), entry_location.getValue(), entry_amount.getText()));
+		Stage pop = new Stage();
+		pop.setScene(newEntryScene);
+		pop.initModality(Modality.APPLICATION_MODAL);
+		pop.initOwner(scene.getWindow());
+		pop.initStyle(StageStyle.UTILITY);
+		pop.centerOnScreen();
+		RainfallNewEntryViewController.getInstance().setStage(pop);
+		pop.showAndWait();
+	}
+	
+	protected void addEntry(LocalDate date, String location, String amount) {
+		entries.add(new RainEntry(date, location, amount));
 		Collections.sort(entries, (a,b)->a.date.compareTo(b.date));
 		onFilter();
 		UserData.getRainfallData().save();
@@ -107,19 +123,27 @@ public class RainfallViewController {
 	
 	public void onDeleteEntry() {
 		RainEntry toremove = entry_container.getSelectionModel().getSelectedItem();
-		List<koossa.plaasbestuur.data.rain.RainEntry> list = UserData.getRainfallData().getRainEntriesByLocation(toremove.location);
-		for (int i =0; i < list.size(); i++) {
-			if (list.get(i).getDate().isEqual(toremove.date) && list.get(i).getAmount() == toremove.amount) {
-				list.remove(i);
+		if (toremove != null) {
+			Alert deletionAlert = new Alert(AlertType.CONFIRMATION);
+			deletionAlert.setHeaderText(FxmlViewManager.getLanguageBundle().getString("confirmDelete") + toremove.date.toString() + " " + toremove.location + " " + toremove.amount);
+			deletionAlert.setContentText(FxmlViewManager.getLanguageBundle().getString("rainEntryDeleteConfirm"));
+			if (deletionAlert.showAndWait().get().getButtonData() == ButtonData.OK_DONE) {
+				List<koossa.plaasbestuur.data.rain.RainEntry> list = UserData.getRainfallData()
+						.getRainEntriesByLocation(toremove.location);
+				for (int i = 0; i < list.size(); i++) {
+					if (list.get(i).getDate().isEqual(toremove.date) && list.get(i).getAmount() == toremove.amount) {
+						list.remove(i);
+					}
+				}
+				int index = entry_container.getSelectionModel().getSelectedIndex();
+				if (index != -1) {
+					entries.remove(index);
+					entry_container.getSelectionModel().clearSelection();
+				}
+				onFilter();
+				UserData.getRainfallData().save();
 			}
 		}
-		UserData.getRainfallData().save();
-		int index = entry_container.getSelectionModel().getSelectedIndex();
-		if (index != -1) {
-			entries.remove(index);
-			entry_container.getSelectionModel().clearSelection();
-		}
-		onFilter();
 	}
 	
 	public void onShowGraph() {
@@ -128,7 +152,7 @@ public class RainfallViewController {
 		pop.initStyle(StageStyle.UTILITY);
 		pop.initModality(Modality.APPLICATION_MODAL);
 		pop.setScene(chartScene);
-		RainfallChartViewController.onShowingChart(filter_startDate.getValue(), filter_endDate.getValue());
+		RainfallChartViewController.onShowingChart(filterStartDate, filterEndDate);
 		pop.centerOnScreen();
 		pop.showAndWait();
 	}
@@ -150,12 +174,11 @@ public class RainfallViewController {
 		pop.setTitle(FxmlViewManager.getLanguageBundle().getString("locationsEdit"));
 		pop.setScene(FxmlViewManager.getScene(FxmlViewNames.LOCATIONS_EDIT_VIEW));
 		LocationsEditViewController.setLocManager(UserData.getRainfallData());
+		LocationsEditViewController.setStage(pop);
 		pop.showAndWait();
 		pop.centerOnScreen();
-		entry_location.getItems().clear();
-		entry_location.getItems().addAll(UserData.getRainfallData().getLocations());
-		filter_location.getItems().clear();
-		filter_location.getItems().addAll(UserData.getRainfallData().getLocations());
+		RainfallNewEntryViewController.getInstance().onEditLocations();
+		RainfallFilterViewController.getInstance().onEditLocations();
 	}
 	
 	public void changeLocationName(String old, String nuw) {
@@ -204,6 +227,12 @@ public class RainfallViewController {
 			this.location = location;
 			l.setText(location);
 		}
+	}
+
+	public void setFilterData(LocalDate startDate, LocalDate endDate, String location) {
+		this.filterEndDate = endDate;
+		this.filterStartDate = startDate;
+		this.filterLocation = location;
 	}
 
 }

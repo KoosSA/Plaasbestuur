@@ -3,8 +3,13 @@ package koossa.plaasbestuur.fxml;
 import java.util.Optional;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextInputDialog;
+import javafx.stage.Stage;
+import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.ILocationsManager;
 
 public class LocationsEditViewController {
@@ -14,6 +19,7 @@ public class LocationsEditViewController {
 	
 	private static LocationsEditViewController instance;
 	private static ILocationsManager locManager;
+	private Stage stage;
 	
 	public void initialize() {
 		LocationsEditViewController.instance = this;
@@ -28,12 +34,24 @@ public class LocationsEditViewController {
 		}
 	}
 	
+	public void onSave() {
+		stage.close();
+	}
+	
 	public void onRemove() {
 		String loc = locations.getSelectionModel().getSelectedItem();
 		if (loc != null) {
-			if (locManager.removeLocation(loc)) {
-				instance.locations.getItems().remove(loc);
-			};
+			if (locManager.getLocations().contains(loc)) {
+				Alert deletionAlert = new Alert(AlertType.CONFIRMATION);
+				deletionAlert.setHeaderText(FxmlViewManager.getLanguageBundle().getString("confirmDelete") + loc);
+				deletionAlert.setContentText(FxmlViewManager.getLanguageBundle().getString("locationDeleteConfirm"));
+				if (deletionAlert.showAndWait().get().getButtonData() == ButtonData.OK_DONE) {
+					if (locManager.removeLocation(loc)) {
+						instance.locations.getItems().remove(loc);
+					}
+					;
+				}
+			}
 		}
 	}
 	
@@ -61,6 +79,10 @@ public class LocationsEditViewController {
 		LocationsEditViewController.locManager = locManager;
 		instance.locations.getItems().clear();
 		instance.locations.getItems().addAll(locManager.getLocations());
+	}
+	
+	public static void setStage(Stage stage) {
+		instance.stage = stage;
 	}
 
 }

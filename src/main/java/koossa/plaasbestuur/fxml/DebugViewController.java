@@ -39,7 +39,6 @@ public class DebugViewController {
 			PlaasBestuur.getPreferences().flush();
 			PlaasBestuur.switchView(FxmlViewNames.LOGIN_VIEW);
 		} catch (BackingStoreException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

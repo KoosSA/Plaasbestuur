@@ -11,8 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ChoiceBox;
@@ -21,7 +21,7 @@ import koossa.plaasbestuur.data.rain.ChartIntervals;
 public class RainfallChartViewController {
 	
 	@FXML
-	LineChart<String, Number> chart;
+	BarChart<String, Number> chart;
 	@FXML
 	NumberAxis yAxis;
 	@FXML
@@ -35,7 +35,7 @@ public class RainfallChartViewController {
 	private static DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	private static LocalDate s, e;
 	private static Period p = Period.of(0, 0, 1);
-	private static ChartIntervals iv = ChartIntervals.Daily;
+	private static ChartIntervals iv = ChartIntervals.Monthly;
 	
 	public void initialize() {
 		chart.getData().add(series);
@@ -47,7 +47,7 @@ public class RainfallChartViewController {
 				changeChartInterval(intervals.getValue());
 			}
 		});
-		intervals.setValue(ChartIntervals.Daily);
+		intervals.setValue(ChartIntervals.Monthly);
 	}
 	
 	private static void changeChartInterval(ChartIntervals newInterval) {
@@ -115,7 +115,6 @@ public class RainfallChartViewController {
 			XYChart.Data<String, Number> entry = new XYChart.Data<String, Number>(dates.get(i), amounts.get(i));
 			series.getData().add(entry);
 		}
-		
 		
 	}
 	
