@@ -1,0 +1,48 @@
+name: Windows native build
+
+on:
+  push:
+    branches: [ "release" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Visual Studio shell
+      uses: egor-tensin/vs-shell@v1
+
+    - name: Setup GraalVM
+      uses: gluonhq/setup-graalvm@master
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Make staging directory
+      run: mkdir staging
+
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+
+    - name:  Build and package
+      shell: cmd
+      run: gradlew nativeBuild
+
+    - name: Copy natives to staging dir
+      run: |
+        cp -r target/gluonfx/x86_64-windows/Plaasbestuur.exe staging
+
+    - name: Upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: Package
+        path: staging
