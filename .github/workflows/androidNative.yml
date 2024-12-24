@@ -44,7 +44,9 @@ jobs:
       run: ./gradlew nativeBuild -Ptarget=android
 
     - name: Unset android sdk root
-      run: unset ANDROID_SDK_ROOT
+      run: |
+        export ANDROID_HOME = $ANDROID_SDK_ROOT
+        echo "ANDROID_HOME: $ANDROID_HOME"
 
     - name:  Package
       run: ./gradlew nativePackage -Ptarget=android
