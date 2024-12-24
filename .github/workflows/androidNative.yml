@@ -43,6 +43,9 @@ jobs:
     - name:  Build
       run: ./gradlew nativeBuild -Ptarget=android
 
+    - name: Unset android sdk root
+      run: unset ANDROID_SDK_ROOT
+
     - name:  Package
       run: ./gradlew nativePackage -Ptarget=android
 
