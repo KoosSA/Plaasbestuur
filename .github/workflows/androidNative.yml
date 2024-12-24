@@ -45,7 +45,7 @@ jobs:
 
     - name: Unset android sdk root
       run: |
-        export ANDROID_HOME = $ANDROID_SDK_ROOT
+        export ANDROID_HOME="$ANDROID_SDK_ROOT"
         echo "ANDROID_HOME: $ANDROID_HOME"
 
     - name:  Package
