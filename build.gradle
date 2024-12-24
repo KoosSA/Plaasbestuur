@@ -28,3 +28,10 @@ javafx {
 				"javafx.web",
 				"javafx.media"]
 }
+
+gluonfx {
+    target = 'host'
+    if (project.hasProperty('target')) {
+        target = project.getProperty('target')
+    }
+}
