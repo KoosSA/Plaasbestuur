@@ -34,10 +34,10 @@ jobs:
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
     - name:  Build
-      run: ./gradlew nativeBuild -Ptarget=android
+      run: gradlew nativeBuild -Ptarget=android
 
     - name:  Package
-      run: ./gradlew nativePackage -Ptarget=android
+      run: gradlew nativePackage -Ptarget=android
 
     - name: Copy natives to staging dir
       run: |
