@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.openjfx.javafxplugin' version '0.1.0'
 	id 'application'
-	id 'com.gluonhq.gluonfx-gradle-plugin' version '1.0.23'
+	id 'com.gluonhq.gluonfx-gradle-plugin' version '1.0.24'
 	id 'eclipse'
 }
 
