@@ -41,10 +41,16 @@ jobs:
       run: chmod +x ./gradlew
 
     - name:  Build
-      run: ./gradlew nativeBuild nativePackage -Ptarget=android --stacktrace
+      run: ./gradlew nativeBuild -Ptarget=android
 
-    # - name:  Package
-    #   run: ./gradlew nativePackage -Ptarget=android --stacktrace
+    - name:  Package
+      run: ./gradlew nativePackage -Ptarget=android
+
+    - name: Copy logs to staging
+      if: always()
+      run: |
+        cp -r build/gluonfx/aarch64-android/gvm/log/*.log stagingApk
+        cp -r build/gluonfx/log/*.log stagingApk
 
     - name: Copy natives to staging dir
       run: |
@@ -52,6 +58,7 @@ jobs:
 
     - name: Upload
       uses: actions/upload-artifact@v4
+      if: always()
       with:
         name: AndroidPackage
         path: stagingApk
