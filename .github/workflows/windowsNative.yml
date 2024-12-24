@@ -29,7 +29,7 @@ jobs:
         distribution: 'temurin'
 
     - name: Make staging directory
-      run: mkdir staging
+      run: mkdir stagingWin
 
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
@@ -40,10 +40,10 @@ jobs:
 
     - name: Copy natives to staging dir
       run: |
-        cp -r build/gluonfx/x86_64-windows/Plaasbestuur.exe staging
+        cp -r build/gluonfx/x86_64-windows/Plaasbestuur.exe stagingWin
 
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
-        name: Package
-        path: staging
+        name: WindowsPackage
+        path: stagingWin
