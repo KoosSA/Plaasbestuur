@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.openjfx.javafxplugin' version '0.1.0'
 	id 'application'
-	id 'com.gluonhq.gluonfx-gradle-plugin' version '1.0.23'
+	id 'com.gluonhq.gluonfx-gradle-plugin' version '1.0.22'
 	id 'eclipse'
 }
 
@@ -24,9 +24,7 @@ javafx {
 				"javafx.controls",
 				"javafx.swing",
 				"javafx.fxml",
-				"javafx.graphics",
-				"javafx.web",
-				"javafx.media"]
+				"javafx.graphics"]
 }
 
 gluonfx {
