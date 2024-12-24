@@ -42,7 +42,7 @@ jobs:
       run: chmod +x ./gradlew
 
     - name:  Build
-      run: ./gradlew nativeBuild -Ptarget=android
+      run: ./gradlew nativeBuild -Ptarget=android --info
 
     - name:  Package
       run: ./gradlew nativePackage -Ptarget=android
