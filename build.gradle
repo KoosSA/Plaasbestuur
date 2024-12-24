@@ -32,4 +32,5 @@ gluonfx {
     if (project.hasProperty('target')) {
         target = project.getProperty('target')
     }
+    appIdentifier = 'koossa.plaasbestuur'
 }
