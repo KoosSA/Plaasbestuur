@@ -32,7 +32,7 @@ public class LoginViewController {
 	}
 	
 	public void onCancel() {
-		Platform.exit();
+		PlaasBestuur.exit();
 	}
 	
 	public void onLogin() {

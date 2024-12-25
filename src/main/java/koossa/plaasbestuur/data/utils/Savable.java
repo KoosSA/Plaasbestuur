@@ -17,7 +17,7 @@ public abstract class Savable<T> implements Serializable {
 
 	public void save() {
 		try {
-			File folder = new File("Data/" + PlaasBestuur.getCurrentUser());
+			File folder = new File(PlaasBestuur.getStorage().getPrivateStorage().get(), "Data/" + PlaasBestuur.getCurrentUser());
 			if (!folder.exists()) {
 				folder.mkdirs();
 			}
@@ -34,7 +34,7 @@ public abstract class Savable<T> implements Serializable {
 	@SuppressWarnings("unchecked")
 	public void load() {
 		try {
-			File folder = new File("Data/" + PlaasBestuur.getCurrentUser());
+			File folder = new File(PlaasBestuur.getStorage().getPrivateStorage().get(), "Data/" + PlaasBestuur.getCurrentUser());
 			if (!folder.exists()) {
 				folder.mkdirs();
 			}
