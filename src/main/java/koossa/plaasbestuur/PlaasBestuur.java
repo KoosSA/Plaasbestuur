@@ -50,9 +50,9 @@ public class PlaasBestuur extends Application {
 		stage.setScene(FxmlViewManager.getScene(viewName));
 		stage.centerOnScreen();
 		if (!Platform.isDesktop()) {
-			stage.setWidth(display.getScreenResolution().getWidth());
-			stage.setHeight(display.getScreenResolution().getHeight());
-			stage.setFullScreen(true);
+		currentView.setWidth(display.getScreenResolution().getWidth());
+			currentView.setHeight(display.getScreenResolution().getHeight());
+			//stage.setFullScreen(true);
 		}
 	}
 	
