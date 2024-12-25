@@ -10,6 +10,7 @@ import com.gluonhq.attach.util.Services;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.scene.Scene;
 import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
 import koossa.plaasbestuur.utils.Language;
@@ -47,13 +48,15 @@ public class PlaasBestuur extends Application {
 	
 	public static void switchView(FxmlViewNames viewName) {
 		currentView = viewName;
-		stage.setScene(FxmlViewManager.getScene(viewName));
-		stage.centerOnScreen();
+		Scene sc = FxmlViewManager.getScene(viewName);
 		if (!Platform.isDesktop()) {
-		currentView.setWidth(display.getScreenResolution().getWidth());
-			currentView.setHeight(display.getScreenResolution().getHeight());
+		        sc.setWidth(display.getScreenResolution().getWidth());
+			sc.setHeight(display.getScreenResolution().getHeight());
 			//stage.setFullScreen(true);
 		}
+		stage.setScene(sc);
+		stage.centerOnScreen();
+		
 	}
 	
 	public static void setLanguage(Language language) {
