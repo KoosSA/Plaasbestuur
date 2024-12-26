@@ -41,7 +41,7 @@ jobs:
     - name: Copy logs to staging
       if: always()
       run: |
-        cp -r build/gluonfx/x86_64-windows/gvm/log/*.log stagingApk
+        cp -r build/gluonfx/x86_64-windows/gvm/log/*.log stagingWin
         cp -r build/gluonfx/log/*.log stagingWin
 
 
