@@ -33,19 +33,15 @@ public class RainfallViewController {
 	@FXML
 	Scene scene;
 	@FXML
-	Label stats_averageFiltered;
-	@FXML
-	Label stats_totalFiltered;
-	@FXML
 	ListView<RainEntry> entry_container;
 	
 	private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	private ObservableList<RainEntry> entries = FXCollections.observableArrayList();
 	protected static ObservableList<RainEntry> filteredEntries = FXCollections.observableArrayList();
-	private Scene filterScene;// = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_FILTER_VIEW);
-//	private Scene statsScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_STATS_VIEW);
-	private Scene newEntryScene;// = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_NEW_ENTRY_VIEW);
-	private Scene chartScene;// = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_CHART_VIEW);
+	private Scene filterScene;
+	private Scene statsScene;
+	private Scene newEntryScene;
+	private Scene chartScene;
 	private static RainfallViewController instance;
 	private LocalDate filterStartDate = LocalDate.of(LocalDate.now().getYear() - 1 , LocalDate.now().getMonthValue(), LocalDate.now().getDayOfMonth());
 	private LocalDate filterEndDate = LocalDate.now();
@@ -64,7 +60,7 @@ public class RainfallViewController {
 			filterLocation = entries.getFirst().location;
 		} catch(Exception e) {}
 		filterScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_FILTER_VIEW);
-//		statsScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_STATS_VIEW);
+		statsScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_STATS_VIEW);
 		newEntryScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_NEW_ENTRY_VIEW);
 		chartScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_CHART_VIEW);
 		entry_container.setItems(filteredEntries);
@@ -101,10 +97,29 @@ public class RainfallViewController {
 		for (int i = 0; i < filteredEntries.size(); i++) {
 			ave += filteredEntries.get(i).amount;
 		}
-		stats_totalFiltered.setText(String.valueOf(Math.round(ave * 100.0) / 100.0));
+		double tot = ave;
 		ave = ave / (double) filteredEntries.size();
-		if (ave == Double.NaN) ave = 0;
-		stats_averageFiltered.setText(String.valueOf(Math.round(ave * 100.0)/100.0));
+		if (ave == Double.NaN) {
+			ave = 0;
+		}
+		RainfallStatsViewController.updateValues(ave, tot);
+	}
+	
+	public void onStats() {
+		Stage pop = new Stage();
+		pop.setScene(statsScene);
+		pop.initModality(Modality.APPLICATION_MODAL);
+		pop.initOwner(scene.getWindow());
+		pop.initStyle(StageStyle.UTILITY);
+		pop.centerOnScreen();
+		pop.requestFocus();
+		pop.toFront();
+		if (!Platform.isDesktop()) {
+			pop.setWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
+			pop.setHeight(PlaasBestuur.getDisplay().getDefaultDimensions().getHeight());
+			pop.setMaxWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
+		}
+		pop.showAndWait();
 	}
 	
 	public void onNewEntry() {

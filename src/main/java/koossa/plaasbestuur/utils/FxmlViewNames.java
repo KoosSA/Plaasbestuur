@@ -10,7 +10,7 @@ public enum FxmlViewNames {
 	RAINFALL_CHART_VIEW("rainfallChartView.fxml"),
 	RAINFALL_NEW_ENTRY_VIEW("rainfallNewEntryView.fxml"),
 	RAINFALL_FILTER_VIEW("rainfallFilterView.fxml"),
-//	RAINFALL_STATS_VIEW("rainfallStatsView.fxml"),
+	RAINFALL_STATS_VIEW("rainfallStatsView.fxml"),
 	LOCATIONS_EDIT_VIEW("locationsEditView.fxml");
 	
 
