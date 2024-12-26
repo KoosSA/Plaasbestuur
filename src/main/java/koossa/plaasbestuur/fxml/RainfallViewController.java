@@ -76,6 +76,8 @@ public class RainfallViewController {
 		pop.initOwner(scene.getWindow());
 		pop.initStyle(StageStyle.UTILITY);
 		pop.centerOnScreen();
+		pop.requestFocus();
+		pop.toFront();
 		RainfallFilterViewController.getInstance().setStage(pop);
 		pop.showAndWait();
 	}
@@ -110,6 +112,8 @@ public class RainfallViewController {
 		pop.initOwner(scene.getWindow());
 		pop.initStyle(StageStyle.UTILITY);
 		pop.centerOnScreen();
+		pop.requestFocus();
+		pop.toFront();
 		RainfallNewEntryViewController.getInstance().setStage(pop);
 		pop.showAndWait();
 	}
@@ -154,6 +158,8 @@ public class RainfallViewController {
 		pop.setScene(chartScene);
 		RainfallChartViewController.onShowingChart(filterStartDate, filterEndDate);
 		pop.centerOnScreen();
+		pop.requestFocus();
+		pop.toFront();
 		pop.showAndWait();
 	}
 	
