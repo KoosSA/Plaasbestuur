@@ -61,7 +61,7 @@ public class PlaasBestuur extends Application {
 		if (stage.getScene() == null) {
                         stage.setScene(sc);
 		} else {
-                        stage.getScene().setRoot(sc.getRoot())
+                        stage.getScene().setRoot(sc.getRoot());
 		}
 		stage.centerOnScreen();
 		
