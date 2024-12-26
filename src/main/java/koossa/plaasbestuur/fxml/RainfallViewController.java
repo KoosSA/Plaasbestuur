@@ -153,6 +153,9 @@ public class RainfallViewController {
 			Alert deletionAlert = new Alert(AlertType.CONFIRMATION);
 			deletionAlert.setHeaderText(FxmlViewManager.getLanguageBundle().getString("confirmDelete") + toremove.date.toString() + " " + toremove.location + " " + toremove.amount);
 			deletionAlert.setContentText(FxmlViewManager.getLanguageBundle().getString("rainEntryDeleteConfirm"));
+			if (!Platform.isDesktop()) {
+				deletionAlert.setWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
+			}
 			if (deletionAlert.showAndWait().get().getButtonData() == ButtonData.OK_DONE) {
 				List<koossa.plaasbestuur.data.rain.RainEntry> list = UserData.getRainfallData()
 						.getRainEntriesByLocation(toremove.location);

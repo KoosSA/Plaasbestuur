@@ -2,6 +2,8 @@ package koossa.plaasbestuur.fxml;
 
 import java.util.Optional;
 
+import com.gluonhq.attach.util.Platform;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -9,6 +11,7 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
+import koossa.plaasbestuur.PlaasBestuur;
 import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.ILocationsManager;
 
@@ -45,6 +48,9 @@ public class LocationsEditViewController {
 				Alert deletionAlert = new Alert(AlertType.CONFIRMATION);
 				deletionAlert.setHeaderText(FxmlViewManager.getLanguageBundle().getString("confirmDelete") + loc);
 				deletionAlert.setContentText(FxmlViewManager.getLanguageBundle().getString("locationDeleteConfirm"));
+				if (!Platform.isDesktop()) {
+					deletionAlert.setWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
+				}
 				if (deletionAlert.showAndWait().get().getButtonData() == ButtonData.OK_DONE) {
 					if (locManager.removeLocation(loc)) {
 						instance.locations.getItems().remove(loc);
