@@ -14,48 +14,51 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+
 <Scene xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koossa.plaasbestuur.fxml.RainfallNewEntryViewController">
-   <VBox prefHeight="170.0" prefWidth="280.0" style="-fx-background-color: #bbbbbbff;">
-      <children>
-         <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="%newEntry">
-            <font>
-               <Font name="System Bold" size="14.0" />
-            </font>
-         </Label>
-         <GridPane hgap="10.0" minHeight="100.0" minWidth="200.0" vgap="10.0">
-            <columnConstraints>
-               <ColumnConstraints hgrow="ALWAYS" />
-               <ColumnConstraints hgrow="ALWAYS" />
-            </columnConstraints>
-            <rowConstraints>
-               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               <RowConstraints vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-               <Label text="%date" />
-               <Label text="%location" GridPane.rowIndex="1" />
-               <Label maxWidth="1.7976931348623157E308" text="%amount" GridPane.rowIndex="2" />
-               <DatePicker fx:id="entry_date" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
-               <ChoiceBox fx:id="entry_location" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-               <TextField fx:id="entry_amount" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            </children>
-            <VBox.margin>
-               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </VBox.margin>
-         </GridPane>
-         <FlowPane alignment="CENTER" hgap="25.0" prefHeight="200.0" prefWidth="200.0">
-            <children>
-               <Button cancelButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#onCancel" text="%cancel" />
-               <Button defaultButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#onOk" text="%ok" />
-            </children>
-            <padding>
-               <Insets top="10.0" />
-            </padding>
-         </FlowPane>
-      </children>
-      <padding>
-         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-      </padding>
-   </VBox>
+   <root>
+      <VBox style="-fx-background-color: #bbbbbbff;">
+         <children>
+            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="%newEntry">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <GridPane hgap="10.0" minHeight="100.0" minWidth="200.0" vgap="10.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="ALWAYS" />
+                  <ColumnConstraints hgrow="ALWAYS" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="%date" />
+                  <Label text="%location" GridPane.rowIndex="1" />
+                  <Label maxWidth="1.7976931348623157E308" text="%amount" GridPane.rowIndex="2" />
+                  <DatePicker fx:id="entry_date" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                  <ChoiceBox fx:id="entry_location" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="entry_amount" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </GridPane>
+            <FlowPane alignment="CENTER" hgap="25.0" prefWrapLength="350.0">
+               <children>
+                  <Button cancelButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#onCancel" text="%cancel" />
+                  <Button defaultButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#onOk" text="%ok" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </FlowPane>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </VBox>
+   </root>
 </Scene>

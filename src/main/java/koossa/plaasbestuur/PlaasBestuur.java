@@ -9,8 +9,8 @@ import com.gluonhq.attach.util.Platform;
 import com.gluonhq.attach.util.Services;
 
 import javafx.application.Application;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
 import koossa.plaasbestuur.utils.Language;
@@ -50,12 +50,13 @@ public class PlaasBestuur extends Application {
 		currentView = viewName;
 		Scene sc = FxmlViewManager.getScene(viewName);
 		if (!Platform.isDesktop()) {
-			stage.setWidth(display.getScreenResolution().getWidth());
-			stage.setHeight(display.getScreenResolution().getHeight());
-		        sc.getRoot().prefWidth(display.getScreenResolution().getWidth());
-			sc.getRoot().prefHeight(display.getScreenResolution().getHeight());
-			sc.getRoot().maxWidth(display.getScreenResolution().getWidth());
-			sc.getRoot().maxHeight(display.getScreenResolution().getHeight());
+//			stage.setWidth(display.getScreenResolution().getWidth());
+//			stage.setHeight(display.getScreenResolution().getHeight());
+//		    sc.getRoot().prefWidth(display.getScreenResolution().getWidth());
+//			sc.getRoot().prefHeight(display.getScreenResolution().getHeight());
+//			sc.getRoot().maxWidth(display.getScreenResolution().getWidth());
+//			sc.getRoot().maxHeight(display.getScreenResolution().getHeight());
+			stage.setMaximized(true);
 		}
 		stage.setScene(sc);
 		stage.centerOnScreen();
