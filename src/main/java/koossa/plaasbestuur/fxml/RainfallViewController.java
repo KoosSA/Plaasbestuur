@@ -57,7 +57,7 @@ public class RainfallViewController {
 					entries.add(new RainEntry(entry.getDate(), entry.getLocation(), Double.toString(entry.getAmount())));
 				});
 			});
-			filterLocation = entries.getFirst().location;
+			//filterLocation = entries.getFirst().location;
 		} catch(Exception e) {}
 		filterScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_FILTER_VIEW);
 		statsScene = FxmlViewManager.getScene(FxmlViewNames.RAINFALL_STATS_VIEW);
@@ -83,12 +83,17 @@ public class RainfallViewController {
 	protected void onFilter() {
 		filteredEntries.clear();
 		if (filterEndDate != null && filterStartDate != null && filterLocation != null) {
-			entries.forEach(value -> {
-				if (value.location.equalsIgnoreCase(filterLocation))
-					if (koossa.plaasbestuur.utils.Filter.onFilterByDate(filterStartDate, filterEndDate, value.date)) {
-						filteredEntries.add(value);
-					}
-			});
+			if (!filterLocation.equals("All")) {
+				entries.forEach(value -> {
+					if (value.location.equalsIgnoreCase(filterLocation))
+						if (koossa.plaasbestuur.utils.Filter.onFilterByDate(filterStartDate, filterEndDate,
+								value.date)) {
+							filteredEntries.add(value);
+						}
+				});
+			} else {
+				filteredEntries.addAll(entries);
+			}
 		} else {
 			filteredEntries.addAll(entries);
 		}

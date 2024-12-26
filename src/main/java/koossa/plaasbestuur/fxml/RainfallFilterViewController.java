@@ -30,9 +30,14 @@ public class RainfallFilterViewController {
 	}
 	
 	public void onFilter() {
-		if (filter_startDate.getValue() != null && filter_endDate.getValue() != null && filter_location.getValue() != null) {
-			RainfallViewController.getInstance().setFilterData(filter_startDate.getValue(), filter_endDate.getValue(),
-					filter_location.getValue());
+		if (filter_startDate.getValue() != null && filter_endDate.getValue() != null) {
+			if (filter_location.getValue() != null) {
+				RainfallViewController.getInstance().setFilterData(filter_startDate.getValue(), filter_endDate.getValue(),
+						filter_location.getValue());
+			} else {
+				RainfallViewController.getInstance().setFilterData(filter_startDate.getValue(), filter_endDate.getValue(),
+						"All");
+			}
 			RainfallViewController.getInstance().onFilter();
 			stage.close();
 		}
