@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 
+import com.gluonhq.attach.util.Platform;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -115,6 +117,11 @@ public class RainfallViewController {
 		pop.requestFocus();
 		pop.toFront();
 		RainfallNewEntryViewController.getInstance().setStage(pop);
+		if (!Platform.isDesktop()) {
+			pop.setWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
+			pop.setHeight(PlaasBestuur.getDisplay().getDefaultDimensions().getHeight());
+			pop.setMaxWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
+		}
 		pop.showAndWait();
 	}
 	
@@ -160,6 +167,11 @@ public class RainfallViewController {
 		pop.centerOnScreen();
 		pop.requestFocus();
 		pop.toFront();
+		if (!Platform.isDesktop()) {
+			pop.setWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
+			pop.setHeight(PlaasBestuur.getDisplay().getDefaultDimensions().getHeight());
+			pop.setMaxWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
+		}
 		pop.showAndWait();
 	}
 	
@@ -181,8 +193,13 @@ public class RainfallViewController {
 		pop.setScene(FxmlViewManager.getScene(FxmlViewNames.LOCATIONS_EDIT_VIEW));
 		LocationsEditViewController.setLocManager(UserData.getRainfallData());
 		LocationsEditViewController.setStage(pop);
-		pop.showAndWait();
+		if (!Platform.isDesktop()) {
+			pop.setWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
+			pop.setHeight(PlaasBestuur.getDisplay().getDefaultDimensions().getHeight());
+			pop.setMaxWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
+		}
 		pop.centerOnScreen();
+		pop.showAndWait();
 		RainfallNewEntryViewController.getInstance().onEditLocations();
 		RainfallFilterViewController.getInstance().onEditLocations();
 	}

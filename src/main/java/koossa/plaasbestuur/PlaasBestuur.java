@@ -96,4 +96,8 @@ public class PlaasBestuur extends Application {
 	public static StorageService getStorage() {
 		return storage;
 	}
+	
+	public static DisplayService getDisplay() {
+		return display;
+	}
 }

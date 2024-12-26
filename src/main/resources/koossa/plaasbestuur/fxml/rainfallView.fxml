@@ -18,8 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<Scene xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koossa.plaasbestuur.fxml.RainfallViewController">
+<Scene fx:id="scene" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koossa.plaasbestuur.fxml.RainfallViewController">
    <root>
       <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
          <children>
