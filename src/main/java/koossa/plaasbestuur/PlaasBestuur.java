@@ -49,21 +49,18 @@ public class PlaasBestuur extends Application {
 	public static void switchView(FxmlViewNames viewName) {
 		currentView = viewName;
 		Scene sc = FxmlViewManager.getScene(viewName);
+		stage.setScene(sc);
 		if (!Platform.isDesktop()) {
-//			stage.setWidth(display.getScreenResolution().getWidth());
-//			stage.setHeight(display.getScreenResolution().getHeight());
+			stage.setWidth(display.getScreenResolution().getWidth());
+			stage.setHeight(display.getScreenResolution().getHeight());
+			stage.setMaxWidth(display.getScreenResolution().getWidth());
 //		    sc.getRoot().prefWidth(display.getScreenResolution().getWidth());
 //			sc.getRoot().prefHeight(display.getScreenResolution().getHeight());
 //			sc.getRoot().maxWidth(display.getScreenResolution().getWidth());
 //			sc.getRoot().maxHeight(display.getScreenResolution().getHeight());
 			stage.setMaximized(true);
 		}
-		if (stage.getScene() == null) {
-                        stage.setScene(sc);
-		} else {
-                        stage.getScene().setRoot(sc.getRoot());
-		}
-		stage.centerOnScreen();
+//		stage.centerOnScreen();
 		
 	}
 	
