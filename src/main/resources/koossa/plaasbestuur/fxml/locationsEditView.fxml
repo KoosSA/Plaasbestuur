@@ -9,100 +9,95 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
 <Scene xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koossa.plaasbestuur.fxml.LocationsEditViewController">
    <root>
-      <AnchorPane>
-         <children>
-            <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #ccccccff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <top>
-                  <FlowPane alignment="CENTER" hgap="10.0" style="-fx-background-color: #aaaaaaff; -fx-border-width: 2; -fx-border-color: #000000ff;" BorderPane.alignment="CENTER">
-                     <children>
-                        <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #ccccccff;">
+         <top>
+            <FlowPane alignment="CENTER" hgap="10.0" style="-fx-background-color: #aaaaaaff; -fx-border-width: 2; -fx-border-color: #000000ff;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../images/world_map.png" />
+                     </image>
+                     <rotationAxis>
+                        <Point3D y="1.0" />
+                     </rotationAxis>
+                  </ImageView>
+                  <Label text="%locationsEdit">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/pencil2.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </FlowPane>
+         </top>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <bottom>
+            <FlowPane alignment="CENTER" hgap="30.0" style="-fx-background-color: #aaaaaaff; -fx-border-width: 2; -fx-border-color: #000000ff;" vgap="30.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onRemove" prefHeight="75.0" prefWidth="75.0" text="%remove">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/world_map.png" />
+                              <Image url="@../images/wastebasket.png" />
                            </image>
-                           <rotationAxis>
-                              <Point3D y="1.0" />
-                           </rotationAxis>
                         </ImageView>
-                        <Label text="%locationsEdit">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEdit" prefHeight="75.0" prefWidth="75.0" text="%edit">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/pencil2.png" />
                            </image>
                         </ImageView>
-                     </children>
-                  </FlowPane>
-               </top>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAdd" prefHeight="75.0" prefWidth="75.0" text="%add">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/heavy_plus_sign.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSave" prefHeight="75.0" prefWidth="75.0" text="%save">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/floppy_disk.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
-               <bottom>
-                  <FlowPane alignment="CENTER" hgap="30.0" style="-fx-background-color: #aaaaaaff; -fx-border-width: 2; -fx-border-color: #000000ff;" vgap="30.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onRemove" prefHeight="75.0" prefWidth="75.0" text="%remove">
-                           <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/wastebasket.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onEdit" prefHeight="75.0" prefWidth="75.0" text="%edit">
-                           <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/pencil2.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onAdd" prefHeight="75.0" prefWidth="75.0" text="%add">
-                           <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/heavy_plus_sign.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSave" prefHeight="75.0" prefWidth="75.0" text="%save">
-                           <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/floppy_disk.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </FlowPane>
-               </bottom>
-               <center>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" pannable="true" BorderPane.alignment="CENTER">
-                     <BorderPane.margin>
-                        <Insets bottom="10.0" left="10.0" top="10.0" />
-                     </BorderPane.margin>
-                     <content>
-                        <ListView fx:id="locations" style="-fx-background-color: #ccccccff;" />
-                     </content>
-                  </ScrollPane>
-               </center>
-            </BorderPane>
-         </children>
-      </AnchorPane>
+            </FlowPane>
+         </bottom>
+         <center>
+            <ScrollPane fitToHeight="true" fitToWidth="true" pannable="true" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
+               </BorderPane.margin>
+               <content>
+                  <ListView fx:id="locations" style="-fx-background-color: #ccccccff;" />
+               </content>
+            </ScrollPane>
+         </center>
+      </BorderPane>
    </root>
 </Scene>
