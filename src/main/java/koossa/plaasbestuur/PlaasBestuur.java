@@ -36,7 +36,7 @@ public class PlaasBestuur extends Application {
 		display = Services.get(DisplayService.class).get();
 		
 		PlaasBestuur.stage = stage;
-		
+		stage.setScene(new Scene()):
 		switchView(FxmlViewNames.LOGIN_VIEW);
 		
 		stage.setTitle(FxmlViewManager.getLanguageBundle().getString("appTitle"));
@@ -58,7 +58,7 @@ public class PlaasBestuur extends Application {
 //			sc.getRoot().maxHeight(display.getScreenResolution().getHeight());
 			stage.setMaximized(true);
 		}
-		stage.setScene(sc);
+		stage.getScene().setRoot(sc.getRoot());
 		stage.centerOnScreen();
 		
 	}
