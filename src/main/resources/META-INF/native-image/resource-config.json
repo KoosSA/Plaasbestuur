@@ -167,6 +167,8 @@
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/rainfallNewEntryView.fxml\\E"
   },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/rainfallStatsView.fxml\\E"
+  },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/rainfallView.fxml\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/registerView.fxml\\E"
