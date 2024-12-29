@@ -208,8 +208,12 @@ public class RainfallViewController {
 	}
 	
 	public void onEditLocations() {
+		RainfallViewController.showLocationEditView();
+	}
+	
+	protected static void showLocationEditView() {
 		Stage pop = new Stage();
-		pop.initOwner(scene.getWindow());
+		pop.initOwner(instance.scene.getWindow());
 		pop.initStyle(StageStyle.UTILITY);
 		pop.initModality(Modality.APPLICATION_MODAL);
 		pop.setTitle(FxmlViewManager.getLanguageBundle().getString("locationsEdit"));

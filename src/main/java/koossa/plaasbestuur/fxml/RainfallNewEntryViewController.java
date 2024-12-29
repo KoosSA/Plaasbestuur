@@ -57,6 +57,10 @@ public class RainfallNewEntryViewController {
 		this.stage = stage;
 	}
 	
+	public void onEditLocation() {
+		RainfallViewController.showLocationEditView();
+	}
+	
 	protected void onEditLocations() {
 		entry_location.getItems().clear();
 		entry_location.getItems().addAll(UserData.getRainfallData().getLocations());

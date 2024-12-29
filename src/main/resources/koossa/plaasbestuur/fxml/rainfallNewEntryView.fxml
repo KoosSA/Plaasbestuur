@@ -7,9 +7,12 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -20,7 +23,7 @@
          <children>
             <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="%newEntry">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <GridPane hgap="10.0" minHeight="100.0" minWidth="200.0" vgap="10.0">
@@ -34,11 +37,33 @@
                   <RowConstraints vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label text="%date" />
-                  <Label text="%location" GridPane.rowIndex="1" />
-                  <Label maxWidth="1.7976931348623157E308" text="%amount" GridPane.rowIndex="2" />
+                  <Label text="%date">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label text="%location" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label maxWidth="1.7976931348623157E308" text="%amount" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
                   <DatePicker fx:id="entry_date" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
-                  <ChoiceBox fx:id="entry_location" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <HBox maxWidth="1.7976931348623157E308" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <ChoiceBox fx:id="entry_location" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onEditLocation" text="Button">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/pencil2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
                   <TextField fx:id="entry_amount" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
                <VBox.margin>
@@ -47,8 +72,14 @@
             </GridPane>
             <FlowPane alignment="CENTER" hgap="25.0" prefWrapLength="350.0">
                <children>
-                  <Button cancelButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#onCancel" text="%cancel" />
-                  <Button defaultButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#onOk" text="%ok" />
+                  <Button cancelButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#onCancel" text="%cancel">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button defaultButton="true" minWidth="75.0" mnemonicParsing="false" onAction="#onOk" text="%ok">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
                </children>
                <padding>
                   <Insets top="10.0" />
