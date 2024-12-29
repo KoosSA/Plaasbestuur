@@ -6,8 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.gluonhq.attach.util.Platform;
-
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,7 +17,6 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
-import koossa.plaasbestuur.PlaasBestuur;
 import koossa.plaasbestuur.data.rain.ChartIntervals;
 
 public class RainfallChartViewController {
