@@ -54,9 +54,14 @@
                   <DatePicker fx:id="filter_endDate" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
             </GridPane>
-            <FlowPane alignment="CENTER" hgap="30.0" prefWrapLength="250.0">
+            <FlowPane alignment="CENTER" hgap="10.0" prefWrapLength="250.0">
                <children>
                   <Button cancelButton="true" mnemonicParsing="false" onAction="#onCancel" prefWidth="75.0" text="%cancel">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#resetFilter" prefWidth="75.0" text="%reset">
                      <font>
                         <Font size="14.0" />
                      </font>

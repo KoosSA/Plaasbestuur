@@ -54,6 +54,15 @@ public class RainfallFilterViewController {
 	public void setStage(Stage stage) {
 		this.stage = stage;
 	}
+	
+	public void resetFilter() {
+		filter_endDate.setValue(LocalDate.now());
+		filter_startDate.setValue(LocalDate.of(LocalDate.now().getYear() - 1 , LocalDate.now().getMonthValue(), LocalDate.now().getDayOfMonth()));
+		RainfallViewController.getInstance().setFilterData(filter_startDate.getValue(), filter_endDate.getValue(),
+				"All");
+		RainfallViewController.getInstance().onFilter();
+		stage.close();
+	}
 
 	protected void onEditLocations() {
 		filter_location.getItems().clear();
