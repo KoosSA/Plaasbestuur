@@ -11,10 +11,8 @@ repositories {
 }
 
 dependencies {
-//	implementation 'com.google.code.gson:gson:2.11.0'
-//	runtimeOnly 'com.gluonhq.attach:storage:4.0.21'
-//	runtimeOnly 'com.gluonhq.attach:lifecycle:4.0.21'
-//	implementation 'com.gluonhq.attach:display:4.0.21'
+//	implementation 'com.google.api-client:google-api-client:2.7.0'
+	implementation 'com.google.apis:google-api-services-drive:v3-rev197-1.25.0'
 	
 }
 
