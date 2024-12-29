@@ -6,6 +6,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.gluonhq.attach.util.Platform;
+
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -17,6 +19,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
+import koossa.plaasbestuur.PlaasBestuur;
 import koossa.plaasbestuur.data.rain.ChartIntervals;
 
 public class RainfallChartViewController {
@@ -37,8 +40,10 @@ public class RainfallChartViewController {
 	private static LocalDate s, e;
 	private static Period p = Period.of(0, 0, 1);
 	private static ChartIntervals iv = ChartIntervals.Monthly;
+	private static RainfallChartViewController instance;
 	
 	public void initialize() {
+		RainfallChartViewController.instance = this;
 		chart.getData().add(series);
 		chart.setLegendVisible(false);
 		intervals.setItems(FXCollections.observableArrayList(ChartIntervals.values()));
@@ -116,7 +121,6 @@ public class RainfallChartViewController {
 			XYChart.Data<String, Number> entry = new XYChart.Data<String, Number>(dates.get(i), amounts.get(i));
 			series.getData().add(entry);
 		}
-		
 	}
 	
 	public void onClose() {

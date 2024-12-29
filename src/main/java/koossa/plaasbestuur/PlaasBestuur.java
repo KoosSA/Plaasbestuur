@@ -54,13 +54,9 @@ public class PlaasBestuur extends Application {
 			stage.setWidth(display.getDefaultDimensions().getWidth());
 			stage.setHeight(display.getDefaultDimensions().getHeight());
 			stage.setMaxWidth(display.getDefaultDimensions().getWidth());
-//		    sc.getRoot().prefWidth(display.getScreenResolution().getWidth());
-//			sc.getRoot().prefHeight(display.getScreenResolution().getHeight());
-//			sc.getRoot().maxWidth(display.getScreenResolution().getWidth());
-//			sc.getRoot().maxHeight(display.getScreenResolution().getHeight());
 			stage.setMaximized(true);
 		}
-//		stage.centerOnScreen();
+		stage.centerOnScreen();
 		
 	}
 	

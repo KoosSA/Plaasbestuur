@@ -4,6 +4,7 @@
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
@@ -12,68 +13,19 @@
 <?import javafx.scene.text.Font?>
 
 <Scene xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koossa.plaasbestuur.fxml.RainfallStatsViewController">
-   <VBox spacing="25.0" style="-fx-border-color: #000000ff; -fx-background-color: #bbbbbbff; -fx-border-width: 2;">
-      <children>
-         <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="%statistics">
+   <BorderPane>
+      <top>
+         <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="%statistics" BorderPane.alignment="CENTER">
             <font>
                <Font name="System Bold" size="14.0" />
             </font>
+            <BorderPane.margin>
+               <Insets bottom="15.0" />
+            </BorderPane.margin>
          </Label>
-         <GridPane hgap="5.0" vgap="10.0">
-            <columnConstraints>
-               <ColumnConstraints fillWidth="false" hgrow="NEVER" />
-               <ColumnConstraints hgrow="NEVER" />
-               <ColumnConstraints hgrow="NEVER" />
-               <ColumnConstraints hgrow="NEVER" />
-            </columnConstraints>
-            <rowConstraints>
-               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-               <Label text="%seasonAverage" wrapText="true">
-                  <font>
-                     <Font size="14.0" />
-                  </font>
-               </Label>
-               <Label fx:id="stats_averageFiltered" text="0" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
-                  <font>
-                     <Font size="14.0" />
-                  </font>
-               </Label>
-               <Label text="mm" GridPane.columnIndex="3" GridPane.halignment="LEFT">
-                  <font>
-                     <Font size="14.0" />
-                  </font>
-               </Label>
-               <Label text=":" GridPane.columnIndex="1">
-                  <font>
-                     <Font size="14.0" />
-                  </font>
-               </Label>
-               <Label text="%seasonTotal" wrapText="true" GridPane.rowIndex="1">
-                  <font>
-                     <Font size="14.0" />
-                  </font>
-               </Label>
-               <Label fx:id="stats_totalFiltered" layoutX="123.0" layoutY="15.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                  <font>
-                     <Font size="14.0" />
-                  </font>
-               </Label>
-               <Label layoutX="136.0" layoutY="15.0" text="mm" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                  <font>
-                     <Font size="14.0" />
-                  </font>
-               </Label>
-               <Label layoutX="114.0" layoutY="15.0" text=":" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                  <font>
-                     <Font size="14.0" />
-                  </font>
-               </Label>
-            </children>
-         </GridPane>
-         <FlowPane alignment="CENTER" prefWrapLength="250.0">
+      </top>
+      <bottom>
+         <FlowPane alignment="CENTER" prefWrapLength="250.0" BorderPane.alignment="CENTER">
             <children>
                <Button defaultButton="true" mnemonicParsing="false" onAction="#onClose" prefHeight="50.0" prefWidth="100.0" text="%ok">
                   <font>
@@ -81,10 +33,73 @@
                   </font>
                </Button>
             </children>
+            <BorderPane.margin>
+               <Insets top="15.0" />
+            </BorderPane.margin>
          </FlowPane>
-      </children>
+      </bottom>
+      <center>
+         <VBox BorderPane.alignment="TOP_CENTER">
+            <children>
+               <GridPane alignment="TOP_CENTER" hgap="5.0" vgap="10.0">
+                  <columnConstraints>
+                     <ColumnConstraints fillWidth="false" hgrow="NEVER" />
+                     <ColumnConstraints hgrow="NEVER" />
+                     <ColumnConstraints hgrow="NEVER" />
+                     <ColumnConstraints hgrow="NEVER" />
+                  </columnConstraints>
+                  <rowConstraints>
+                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                  <children>
+                     <Label text="%seasonAverage" wrapText="true">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="stats_averageFiltered" text="0" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <Label text="mm" GridPane.columnIndex="3" GridPane.halignment="LEFT">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <Label text=":" GridPane.columnIndex="1">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <Label text="%seasonTotal" wrapText="true" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="stats_totalFiltered" layoutX="123.0" layoutY="15.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <Label layoutX="136.0" layoutY="15.0" text="mm" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                     <Label layoutX="114.0" layoutY="15.0" text=":" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </GridPane>
+            </children>
+         </VBox>
+      </center>
       <padding>
          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
       </padding>
-   </VBox>
+   </BorderPane>
 </Scene>
