@@ -32,8 +32,8 @@ public class DebugViewController {
 		} else {
 			private_lbl.setText("Not available");
 		}
-		if (PlaasBestuur.getStorage().getPublicStorage("Plaasbestuur").isPresent()) {
-			public_lbl.setText(PlaasBestuur.getStorage().getPublicStorage("Plaasbestuur").get().getAbsolutePath());
+		if (PlaasBestuur.getStorage().isExternalStorageWritable()) {
+			public_lbl.setText(PlaasBestuur.getStorage().getPublicStorage("Documents").get().getAbsolutePath());
 		} else {
 			public_lbl.setText("Not available");
 		}
