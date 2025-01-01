@@ -12,7 +12,11 @@ repositories {
 
 dependencies {
 //	implementation 'com.google.api-client:google-api-client:2.7.0'
-	implementation 'com.google.apis:google-api-services-drive:v3-rev197-1.25.0'
+//	implementation 'com.google.apis:google-api-services-drive:v3-rev197-1.25.0'
+//	implementation 'org.kohsuke:github-api:1.326'
+//	implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+	
+
 	
 }
 

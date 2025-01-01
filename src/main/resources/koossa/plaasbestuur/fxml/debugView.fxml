@@ -46,6 +46,18 @@
                               </Button>
                            </children>
                         </HBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label text="Private" />
+                              <Label fx:id="private_lbl" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label text="Public" />
+                              <Label fx:id="public_lbl" text="Label" />
+                           </children>
+                        </HBox>
                         <Button mnemonicParsing="false" onAction="#onDeleteAccount" text="%deleteAccount">
                            <font>
                               <Font size="14.0" />
