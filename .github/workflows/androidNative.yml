@@ -53,6 +53,7 @@ jobs:
       run: |
         cp -r build/gluonfx/aarch64-android/gvm/log/*.log stagingApk
         cp -r build/gluonfx/log/*.log stagingApk
+        cp -r build/gluonfx/aarch64-android/gensrc/android/*.xml stagingApk
 
     - name: Copy natives to staging dir
       run: |
