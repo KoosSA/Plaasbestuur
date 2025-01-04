@@ -2,6 +2,7 @@ package koossa.plaasbestuur;
 
 import java.util.prefs.Preferences;
 
+import com.gluonhq.attach.connectivity.ConnectivityService;
 import com.gluonhq.attach.display.DisplayService;
 import com.gluonhq.attach.lifecycle.LifecycleService;
 import com.gluonhq.attach.storage.StorageService;
@@ -24,6 +25,7 @@ public class PlaasBestuur extends Application {
 	private static LifecycleService lifecycle;
 	private static StorageService storage;
 	private static DisplayService display;
+	private static ConnectivityService connectivity;
 
 	public static void main(String[] args) {
 		PlaasBestuur.launch(args);
@@ -34,6 +36,13 @@ public class PlaasBestuur extends Application {
 		lifecycle = Services.get(LifecycleService.class).get();
 		storage = Services.get(StorageService.class).get();
 		display = Services.get(DisplayService.class).get();
+		Services.get(ConnectivityService.class).ifPresent(service -> {
+			connectivity = service;
+		});
+		
+		if (connectivity != null) {
+			System.out.println(connectivity.isConnected());
+		}
 		
 		PlaasBestuur.stage = stage;
 		

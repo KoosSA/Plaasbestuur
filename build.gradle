@@ -42,6 +42,6 @@ gluonfx {
     attachConfig {
         version = "4.0.21"
         configuration = "implementation";
-        services "lifecycle", "storage", "display"
+        services "lifecycle", "storage", "display", "connectivity"
     }
 }
