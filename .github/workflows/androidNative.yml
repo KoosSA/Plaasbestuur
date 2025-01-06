@@ -48,7 +48,7 @@ jobs:
     - name:  Package
       run: |
         export ANDROID_SDK=$ANDROID_HOME
-        ./gradlew nativePackage -Ptarget=android -PversionCode=$GITHUB_RUN_NUMBER -PversionPatch=$GITHUB_RUN_NUMBER
+        ./gradlew nativePackage -Ptarget=android -PcodeNumber=$GITHUB_RUN_NUMBER -PversionPatch=$GITHUB_RUN_NUMBER
     - name: Copy logs to staging
       if: always()
       run: |
