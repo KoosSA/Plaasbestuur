@@ -44,4 +44,21 @@ gluonfx {
         configuration = "implementation";
         services "lifecycle", "storage", "display", "connectivity"
     }
+    release {
+        // Android
+        // appLabel = ""
+        versionCode = versionCode
+        versionName = versionMajor + '.' + versionMinor + '.' + versionPatch
+        // providedKeyStorePath = ""
+        // providedKeyStorePassword = ""
+        // providedKeyAlias = ""
+        // providedKeyAliasPassword = ""
+        // iOS
+        // bundleName = ""
+        // bundleVersion = ""
+        // bundleShortVersion = ""
+        // providedSigningIdentity = ""
+        // providedProvisioningProfile = ""
+        // skipSigning = false
+    }
 }
