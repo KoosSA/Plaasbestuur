@@ -75,6 +75,8 @@ jobs:
         path: stagingLogs
 
     - name: Push property changes
+      env: 
+        GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
