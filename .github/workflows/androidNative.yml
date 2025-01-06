@@ -48,8 +48,7 @@ jobs:
     - name:  Package
       run: |
         export ANDROID_SDK=$ANDROID_HOME
-        ./gradlew nativePackage -Ptarget=android
-
+        ./gradlew nativePackage -Ptarget=android -PversionCode=$GITHUB_RUN_NUMBER -PversionPatch=$GITHUB_RUN_NUMBER
     - name: Copy logs to staging
       if: always()
       run: |
@@ -73,13 +72,3 @@ jobs:
       with:
         name: AndroidLogs
         path: stagingLogs
-
-    - name: Push property changes
-      env: 
-        GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
-      run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add gradle.properties
-        git commit -m "generated"
-        git push
