@@ -47,7 +47,7 @@ gluonfx {
     release {
         // Android
         // appLabel = ""
-        versionCode = versionCode
+        versionCode = codeNumber
         versionName = versionMajor + '.' + versionMinor + '.' + versionPatch
         // providedKeyStorePath = ""
         // providedKeyStorePassword = ""
@@ -67,7 +67,7 @@ task incrementVersionCode {
 	def var = new Properties() 
         File myfile = file("gradle.properties");
         var.load(myfile.newDataInputStream())
-        var.setProperty("versionCode", var.getProperty("versionCode") + 1)
+        var.setProperty("codeNumber", var.getProperty("codeNumber") + 1)
         var.store(myfile.newWriter(), null)
 }
 
