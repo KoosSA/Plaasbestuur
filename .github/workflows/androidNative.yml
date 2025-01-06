@@ -73,3 +73,11 @@ jobs:
       with:
         name: AndroidLogs
         path: stagingLogs
+
+    - name: Push property changes
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add gradle.properties
+        git commit -m "generated"
+        git push
