@@ -46,13 +46,13 @@ gluonfx {
     }
     release {
         // Android
-        // appLabel = ""
+        appLabel = "Plaasbestuur"
         versionCode = codeNumber
         versionName = versionMajor + '.' + versionMinor + '.' + versionPatch
-        // providedKeyStorePath = ""
-        // providedKeyStorePassword = ""
-        // providedKeyAlias = ""
-        // providedKeyAliasPassword = ""
+        providedKeyStorePath = ""
+        providedKeyStorePassword = ""
+        providedKeyAlias = ""
+        providedKeyAliasPassword = ""
         // iOS
         // bundleName = ""
         // bundleVersion = ""
