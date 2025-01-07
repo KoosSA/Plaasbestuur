@@ -39,6 +39,13 @@ jobs:
         mkdir stagingApk
         mkdir stagingLogs
 
+    - name: Decode Keystore
+      id: android_keystore_file
+      uses: timheuer/base64-to-file@v1
+      with:
+        fileName: 'mykeystore.jks'
+        encodedString: ${{ secrets.KEYSTORE }}
+
     - name: Make gradlew executable
       run: chmod +x ./gradlew
 
@@ -49,6 +56,12 @@ jobs:
       run: |
         export ANDROID_SDK=$ANDROID_HOME
         ./gradlew nativePackage -Ptarget=android -PcodeNumber=$GITHUB_RUN_NUMBER -PversionPatch=$GITHUB_RUN_NUMBER
+      env:
+        GLUON_ANDROID_KEYSTOREPATH: ${{ steps.android_keystore_file.outputs.filePath }}
+        GLUON_ANDROID_KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+        GLUON_ANDROID_KEYALIAS: ${{ secrets.KEYSTORE_ALIAS }}
+        GLUON_ANDROID_KEYALIAS_PASSWORD: ${{ secrets.KEYSTORE_ALIAS_PASSWORD }}
+          
     - name: Copy logs to staging
       if: always()
       run: |
