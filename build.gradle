@@ -49,10 +49,10 @@ gluonfx {
         appLabel = "Plaasbestuur"
         versionCode = codeNumber
         versionName = versionMajor + '.' + versionMinor + '.' + versionPatch
-        providedKeyStorePath = ""
-        providedKeyStorePassword = ""
-        providedKeyAlias = ""
-        providedKeyAliasPassword = ""
+        providedKeyStorePath = "${System.env.GLUON_ANDROID_KEYSTOREPATH}"
+        providedKeyStorePassword = "${System.env.GLUON_ANDROID_KEYSTORE_PASSWORD}"
+        providedKeyAlias = "${System.env.GLUON_ANDROID_KEYALIAS}"
+        providedKeyAliasPassword = "${System.env.GLUON_ANDROID_KEYALIAS_PASSWORD}"
         // iOS
         // bundleName = ""
         // bundleVersion = ""
