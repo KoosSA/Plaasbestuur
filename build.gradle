@@ -63,7 +63,8 @@ gluonfx {
     }
 }
 
-task incrementVersionCode {
+tasks.register('incrementVersionCode') {
+	group = 'versioning'
 	def var = new Properties() 
         File myfile = file("gradle.properties");
         var.load(myfile.newDataInputStream())
