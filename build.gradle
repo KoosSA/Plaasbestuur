@@ -62,14 +62,3 @@ gluonfx {
         // skipSigning = false
     }
 }
-
-tasks.register('incrementVersionCode') {
-	group = 'versioning'
-	def var = new Properties() 
-        File myfile = file("gradle.properties");
-        var.load(myfile.newDataInputStream())
-        var.setProperty("codeNumber", (var.getProperty("codeNumber").toInteger() + 1).toString())
-        var.store(myfile.newWriter(), null)
-}
-
-//nativePackage.finalizedBy incrementVersionCode
