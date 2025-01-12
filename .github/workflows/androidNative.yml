@@ -35,7 +35,16 @@ jobs:
         sudo apt install libasound2-dev libavcodec-dev libavformat-dev libavutil-dev libgl-dev libgtk-3-dev libpango1.0-dev libxtst-dev
           
     - name: Make staging directory
-      run: mkdir stagingApk
+      run: |
+        mkdir stagingApk
+        mkdir stagingLogs
+
+    - name: Decode Keystore
+      id: android_keystore_file
+      uses: timheuer/base64-to-file@v1
+      with:
+        fileName: 'mykeystore.jks'
+        encodedString: ${{ secrets.KEYSTORE }}
 
     - name: Make gradlew executable
       run: chmod +x ./gradlew
@@ -46,14 +55,19 @@ jobs:
     - name:  Package
       run: |
         export ANDROID_SDK=$ANDROID_HOME
-        ./gradlew nativePackage -Ptarget=android
-
+        ./gradlew nativePackage -Ptarget=android -PcodeNumber=$GITHUB_RUN_NUMBER -PversionPatch=$GITHUB_RUN_NUMBER
+      env:
+        GLUON_ANDROID_KEYSTOREPATH: ${{ steps.android_keystore_file.outputs.filePath }}
+        GLUON_ANDROID_KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+        GLUON_ANDROID_KEYALIAS: ${{ secrets.KEYSTORE_ALIAS }}
+        GLUON_ANDROID_KEYALIAS_PASSWORD: ${{ secrets.KEYSTORE_ALIAS_PASSWORD }}
+          
     - name: Copy logs to staging
       if: always()
       run: |
-        cp -r build/gluonfx/aarch64-android/gvm/log/*.log stagingApk
-        cp -r build/gluonfx/log/*.log stagingApk
-        cp -r build/gluonfx/aarch64-android/gensrc/android/*.xml stagingApk
+        cp -r build/gluonfx/aarch64-android/gvm/log/*.log stagingLogs
+        cp -r build/gluonfx/log/*.log stagingLogs
+        cp -r build/gluonfx/aarch64-android/gensrc/android/*.xml stagingLogs
 
     - name: Copy natives to staging dir
       run: |
@@ -61,7 +75,13 @@ jobs:
 
     - name: Upload
       uses: actions/upload-artifact@v4
-      if: always()
       with:
         name: AndroidPackage
         path: stagingApk
+    
+    - name: Upload logs
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: AndroidLogs
+        path: stagingLogs

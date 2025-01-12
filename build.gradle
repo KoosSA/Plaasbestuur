@@ -44,4 +44,31 @@ gluonfx {
         configuration = "implementation";
         services "lifecycle", "storage", "display", "connectivity"
     }
+    release {
+        // Android
+        appLabel = "Plaasbestuur"
+        versionCode = codeNumber
+        versionName = versionMajor + '.' + versionMinor + '.' + versionPatch
+        providedKeyStorePath = "${System.env.GLUON_ANDROID_KEYSTOREPATH}"
+        providedKeyStorePassword = "${System.env.GLUON_ANDROID_KEYSTORE_PASSWORD}"
+        providedKeyAlias = "${System.env.GLUON_ANDROID_KEYALIAS}"
+        providedKeyAliasPassword = "${System.env.GLUON_ANDROID_KEYALIAS_PASSWORD}"
+        // iOS
+        // bundleName = ""
+        // bundleVersion = ""
+        // bundleShortVersion = ""
+        // providedSigningIdentity = ""
+        // providedProvisioningProfile = ""
+        // skipSigning = false
+    }
 }
+
+task incrementVersionCode {
+	def var = new Properties() 
+        File myfile = file("gradle.properties");
+        var.load(myfile.newDataInputStream())
+        var.setProperty("codeNumber", var.getProperty("codeNumber") + 1)
+        var.store(myfile.newWriter(), null)
+}
+
+nativePackage.finalizedBy incrementVersionCode
