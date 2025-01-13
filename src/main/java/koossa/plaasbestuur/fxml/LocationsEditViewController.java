@@ -9,6 +9,7 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
+import koossa.plaasbestuur.fxml.rainfall.RainfallViewController;
 import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.ILocationsManager;
 import koossa.plaasbestuur.utils.Screen;

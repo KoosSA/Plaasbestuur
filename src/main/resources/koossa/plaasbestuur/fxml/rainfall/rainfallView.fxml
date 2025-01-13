@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Scene fx:id="scene" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koossa.plaasbestuur.fxml.RainfallViewController">
+<Scene fx:id="scene" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koossa.plaasbestuur.fxml.rainfall.RainfallViewController">
    <root>
       <BorderPane style="-fx-background-color: #ccccccff;">
          <top>
@@ -43,7 +43,7 @@
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../images/heavy_plus_sign.png" />
+                                          <Image url="@../../images/heavy_plus_sign.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -55,7 +55,7 @@
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../images/mag_right.png" />
+                                          <Image url="@../../images/mag_right.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -67,7 +67,7 @@
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../images/world_map.png" />
+                                          <Image url="@../../images/world_map.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -79,7 +79,7 @@
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../images/wastebasket.png" />
+                                          <Image url="@../../images/wastebasket.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -91,7 +91,7 @@
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../images/bar_chart.png" />
+                                          <Image url="@../../images/bar_chart.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -103,7 +103,7 @@
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../images/chart_with_upwards_trend.png" />
+                                          <Image url="@../../images/chart_with_upwards_trend.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -115,7 +115,7 @@
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../images/rocket.png" />
+                                          <Image url="@../../images/rocket.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -134,7 +134,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/leftwards_arrow_with_hook.png" />
+                              <Image url="@../../images/leftwards_arrow_with_hook.png" />
                            </image>
                         </ImageView>
                      </graphic>

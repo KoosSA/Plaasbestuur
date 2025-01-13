@@ -1,4 +1,4 @@
-package koossa.plaasbestuur.fxml;
+package koossa.plaasbestuur.fxml.rainfall;
 
 import java.time.LocalDate;
 

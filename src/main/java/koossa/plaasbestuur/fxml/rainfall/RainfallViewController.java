@@ -1,4 +1,4 @@
-package koossa.plaasbestuur.fxml;
+package koossa.plaasbestuur.fxml.rainfall;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import koossa.plaasbestuur.PlaasBestuur;
 import koossa.plaasbestuur.data.utils.UserData;
+import koossa.plaasbestuur.fxml.LocationsEditViewController;
 import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
 import koossa.plaasbestuur.utils.Screen;

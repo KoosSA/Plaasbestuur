@@ -860,31 +860,31 @@
   "methods":[{"name":"<init>","parameterTypes":[] },{"name":"onCattle","parameterTypes":[] },{"name":"onQuit","parameterTypes":[] },{"name":"onRainfall","parameterTypes":[] },{"name":"onSettings","parameterTypes":[] }]
 },
 {
-  "type":"koossa.plaasbestuur.fxml.RainfallChartViewController",
+  "type":"koossa.plaasbestuur.fxml.rainfall.RainfallChartViewController",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
   "methods":[{"name":"<init>","parameterTypes":[] },{"name":"initialize","parameterTypes":[] },{"name":"onClose","parameterTypes":[] }]
 },
 {
-  "type":"koossa.plaasbestuur.fxml.RainfallFilterViewController",
+  "type":"koossa.plaasbestuur.fxml.rainfall.RainfallFilterViewController",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
   "methods":[{"name":"<init>","parameterTypes":[] },{"name":"initialize","parameterTypes":[] },{"name":"onCancel","parameterTypes":[] },{"name":"onFilter","parameterTypes":[] },{"name":"resetFilter","parameterTypes":[] }]
 },
 {
-  "type":"koossa.plaasbestuur.fxml.RainfallNewEntryViewController",
+  "type":"koossa.plaasbestuur.fxml.rainfall.RainfallNewEntryViewController",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
   "methods":[{"name":"<init>","parameterTypes":[] },{"name":"initialize","parameterTypes":[] },{"name":"onCancel","parameterTypes":[] },{"name":"onEditLocation","parameterTypes":[] },{"name":"onOk","parameterTypes":[] }]
 },
 {
-  "type":"koossa.plaasbestuur.fxml.RainfallStatsViewController",
+  "type":"koossa.plaasbestuur.fxml.rainfall.RainfallStatsViewController",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
   "methods":[{"name":"<init>","parameterTypes":[] },{"name":"initialize","parameterTypes":[] },{"name":"onClose","parameterTypes":[] }]
 },
 {
-  "type":"koossa.plaasbestuur.fxml.RainfallViewController",
+  "type":"koossa.plaasbestuur.fxml.rainfall.RainfallViewController",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
   "methods":[{"name":"<init>","parameterTypes":[] },{"name":"initialize","parameterTypes":[] },{"name":"onDeleteEntry","parameterTypes":[] },{"name":"onEditLocations","parameterTypes":[] },{"name":"onExportData","parameterTypes":[] },{"name":"onFilter","parameterTypes":[] },{"name":"onMainMenu","parameterTypes":[] },{"name":"onNewEntry","parameterTypes":[] },{"name":"onShowGraph","parameterTypes":[] },{"name":"onStats","parameterTypes":[] },{"name":"showFilter","parameterTypes":[] }]

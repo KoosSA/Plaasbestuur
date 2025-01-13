@@ -1,4 +1,4 @@
-package koossa.plaasbestuur.fxml;
+package koossa.plaasbestuur.fxml.rainfall;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

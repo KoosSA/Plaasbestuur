@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Scene xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koossa.plaasbestuur.fxml.RainfallNewEntryViewController">
+<Scene xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koossa.plaasbestuur.fxml.rainfall.RainfallNewEntryViewController">
    <root>
       <VBox style="-fx-background-color: #bbbbbbff;">
          <children>
@@ -57,7 +57,7 @@
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/pencil2.png" />
+                                    <Image url="@../../images/pencil2.png" />
                                  </image>
                               </ImageView>
                            </graphic>

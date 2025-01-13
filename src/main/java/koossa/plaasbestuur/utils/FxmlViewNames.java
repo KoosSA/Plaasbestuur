@@ -6,11 +6,11 @@ public enum FxmlViewNames {
 	DEBUG_VIEW("debugView.fxml"),
 	LOGIN_VIEW("loginView.fxml"),
 	REGISTER_VIEW("registerView.fxml"),
-	RAINFALL_VIEW("rainfallView.fxml"),
-	RAINFALL_CHART_VIEW("rainfallChartView.fxml"),
-	RAINFALL_NEW_ENTRY_VIEW("rainfallNewEntryView.fxml"),
-	RAINFALL_FILTER_VIEW("rainfallFilterView.fxml"),
-	RAINFALL_STATS_VIEW("rainfallStatsView.fxml"),
+	RAINFALL_VIEW("rainfall/rainfallView.fxml"),
+	RAINFALL_CHART_VIEW("rainfall/rainfallChartView.fxml"),
+	RAINFALL_NEW_ENTRY_VIEW("rainfall/rainfallNewEntryView.fxml"),
+	RAINFALL_FILTER_VIEW("rainfall/rainfallFilterView.fxml"),
+	RAINFALL_STATS_VIEW("rainfall/rainfallStatsView.fxml"),
 	LOCATIONS_EDIT_VIEW("locationsEditView.fxml");
 	
 
