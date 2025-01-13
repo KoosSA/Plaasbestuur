@@ -14,8 +14,8 @@
                 <action android:name='android.intent.action.MAIN'/>
              </intent-filter>
         </activity>
-        <activity android:name="com.gluonhq.impl.attach.android.PermissionRequestActivity" 
-        		  android:exported="true"/>
+        <activity android:name='com.gluonhq.helloandroid.PermissionRequestActivity'
+                  android:exported="true"/>
     </application>
 </manifest>
 
