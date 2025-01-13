@@ -23,7 +23,6 @@ public class PlaasBestuur extends Application {
 	private static String currentUser;
 	private static LifecycleService lifecycle;
 	private static StorageService storage;
-	private static ConnectivityService connectivity;
 
 	public static void main(String[] args) {
 		PlaasBestuur.launch(args);
