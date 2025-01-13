@@ -46,9 +46,6 @@ public class LocationsEditViewController {
 				Alert deletionAlert = new Alert(AlertType.CONFIRMATION);
 				deletionAlert.setHeaderText(FxmlViewManager.getLanguageBundle().getString("confirmDelete") + loc);
 				deletionAlert.setContentText(FxmlViewManager.getLanguageBundle().getString("locationDeleteConfirm"));
-//				if (!Platform.isDesktop()) {
-//					deletionAlert.setWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
-//				}
 				Screen.fitToWidthIfMobile(deletionAlert.getDialogPane().getScene().getWindow());
 				if (deletionAlert.showAndWait().get().getButtonData() == ButtonData.OK_DONE) {
 					if (locManager.removeLocation(loc)) {

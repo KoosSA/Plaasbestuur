@@ -21,7 +21,6 @@ public class PlaasBestuur extends Application {
 	private static Preferences preferences = Preferences.userNodeForPackage(PlaasBestuur.class);
 	private static String currentUser;
 	private static LifecycleService lifecycle;
-//	private static StorageService storage;
 
 	public static void main(String[] args) {
 		PlaasBestuur.launch(args);
@@ -30,7 +29,6 @@ public class PlaasBestuur extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		lifecycle = Services.get(LifecycleService.class).get();
-//		storage = Services.get(StorageService.class).get();
 		Storage.init();
 		Screen.init();
 		
@@ -41,21 +39,14 @@ public class PlaasBestuur extends Application {
 		stage.setTitle(FxmlViewManager.getLanguageBundle().getString("appTitle"));
 		stage.centerOnScreen();
 		stage.show();
-		
-//		stage.requestFocus();
-//		stage.toFront();
+		stage.toFront();
+		stage.requestFocus();
 	}
 	
 	public static void switchView(FxmlViewNames viewName) {
 		currentView = viewName;
 		Scene sc = FxmlViewManager.getScene(viewName);
 		stage.setScene(sc);
-//		if (!Platform.isDesktop()) {
-//			stage.setWidth(display.getDefaultDimensions().getWidth());
-//			stage.setHeight(display.getDefaultDimensions().getHeight());
-//			stage.setMaxWidth(display.getDefaultDimensions().getWidth());
-//			stage.setMaximized(true);
-//		}
 		Screen.fitToScreenIfMobile(stage);
 		stage.centerOnScreen();
 		

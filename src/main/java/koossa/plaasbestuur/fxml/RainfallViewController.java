@@ -118,11 +118,6 @@ public class RainfallViewController {
 		pop.centerOnScreen();
 		pop.requestFocus();
 		pop.toFront();
-//		if (!Platform.isDesktop()) {
-//			pop.setWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
-//			pop.setHeight(PlaasBestuur.getDisplay().getDefaultDimensions().getHeight());
-//			pop.setMaxWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
-//		}
 		Screen.fitToScreenIfMobile(pop);
 		pop.showAndWait();
 	}
@@ -137,11 +132,6 @@ public class RainfallViewController {
 		pop.requestFocus();
 		pop.toFront();
 		RainfallNewEntryViewController.getInstance().setStage(pop);
-//		if (!Platform.isDesktop()) {
-//			pop.setWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
-//			pop.setHeight(PlaasBestuur.getDisplay().getDefaultDimensions().getHeight());
-//			pop.setMaxWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
-//		}
 		Screen.fitToScreenIfMobile(pop);
 		pop.showAndWait();
 	}
@@ -159,9 +149,6 @@ public class RainfallViewController {
 			Alert deletionAlert = new Alert(AlertType.CONFIRMATION);
 			deletionAlert.setHeaderText(FxmlViewManager.getLanguageBundle().getString("confirmDelete") + toremove.date.toString() + " " + toremove.location + " " + toremove.amount);
 			deletionAlert.setContentText(FxmlViewManager.getLanguageBundle().getString("rainEntryDeleteConfirm"));
-//			if (!Platform.isDesktop()) {
-//				deletionAlert.setWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
-//			}
 			Screen.fitToWidthIfMobile(deletionAlert.getDialogPane().getScene().getWindow());
 			if (deletionAlert.showAndWait().get().getButtonData() == ButtonData.OK_DONE) {
 				List<koossa.plaasbestuur.data.rain.RainEntry> list = UserData.getRainfallData()
@@ -192,11 +179,6 @@ public class RainfallViewController {
 		pop.centerOnScreen();
 		pop.requestFocus();
 		pop.toFront();
-//		if (!Platform.isDesktop()) {
-//			pop.setWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
-//			pop.setHeight(PlaasBestuur.getDisplay().getDefaultDimensions().getHeight());
-//			pop.setMaxWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
-//		}
 		Screen.fitToScreenIfMobile(pop);
 		pop.showAndWait();
 	}
@@ -223,11 +205,6 @@ public class RainfallViewController {
 		pop.setScene(FxmlViewManager.getScene(FxmlViewNames.LOCATIONS_EDIT_VIEW));
 		LocationsEditViewController.setLocManager(UserData.getRainfallData());
 		LocationsEditViewController.setStage(pop);
-//		if (!Platform.isDesktop()) {
-//			pop.setWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
-//			pop.setHeight(PlaasBestuur.getDisplay().getDefaultDimensions().getHeight());
-//			pop.setMaxWidth(PlaasBestuur.getDisplay().getDefaultDimensions().getWidth());
-//		}
 		Screen.fitToScreenIfMobile(pop);
 		pop.centerOnScreen();
 		pop.showAndWait();
