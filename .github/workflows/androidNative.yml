@@ -70,11 +70,13 @@ jobs:
         cp -r build/gluonfx/aarch64-android/gensrc/android/*.xml stagingLogs
 
     - name: Copy natives to staging dir
+	  if: always()
       run: |
         cp -r build/gluonfx/aarch64-android/gvm/*.apk stagingApk
 
     - name: Upload
       uses: actions/upload-artifact@v4
+	  if: always()
       with:
         name: AndroidPackage
         path: stagingApk
