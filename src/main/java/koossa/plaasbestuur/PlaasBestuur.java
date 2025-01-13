@@ -34,13 +34,6 @@ public class PlaasBestuur extends Application {
 		lifecycle = Services.get(LifecycleService.class).get();
 		storage = Services.get(StorageService.class).get();
 		Screen.init();
-		Services.get(ConnectivityService.class).ifPresent(service -> {
-			connectivity = service;
-		});
-		
-		if (connectivity != null) {
-			System.out.println(connectivity.isConnected());
-		}
 		
 		PlaasBestuur.stage = stage;
 		
