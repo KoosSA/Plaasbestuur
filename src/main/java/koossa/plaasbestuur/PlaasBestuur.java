@@ -39,10 +39,11 @@ public class PlaasBestuur extends Application {
 		switchView(FxmlViewNames.LOGIN_VIEW);
 		
 		stage.setTitle(FxmlViewManager.getLanguageBundle().getString("appTitle"));
-		stage.show();
 		stage.centerOnScreen();
-		stage.requestFocus();
-		stage.toFront();
+		stage.show();
+		
+//		stage.requestFocus();
+//		stage.toFront();
 	}
 	
 	public static void switchView(FxmlViewNames viewName) {
