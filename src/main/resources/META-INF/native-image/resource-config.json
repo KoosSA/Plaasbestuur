@@ -161,6 +161,16 @@
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/mainView.fxml\\E"
   },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/rainfall\/rainfallChartView.fxml\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/rainfall\/rainfallFilterView.fxml\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/rainfall\/rainfallNewEntryView.fxml\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/rainfall\/rainfallStatsView.fxml\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/rainfall\/rainfallView.fxml\\E"
+  },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/rainfallChartView.fxml\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/rainfallFilterView.fxml\\E"
