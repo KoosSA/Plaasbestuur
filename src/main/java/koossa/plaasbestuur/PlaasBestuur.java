@@ -2,9 +2,7 @@ package koossa.plaasbestuur;
 
 import java.util.prefs.Preferences;
 
-import com.gluonhq.attach.connectivity.ConnectivityService;
 import com.gluonhq.attach.lifecycle.LifecycleService;
-import com.gluonhq.attach.storage.StorageService;
 import com.gluonhq.attach.util.Services;
 
 import javafx.application.Application;
@@ -14,6 +12,7 @@ import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
 import koossa.plaasbestuur.utils.Language;
 import koossa.plaasbestuur.utils.Screen;
+import koossa.plaasbestuur.utils.Storage;
 
 public class PlaasBestuur extends Application {
 	
@@ -22,7 +21,7 @@ public class PlaasBestuur extends Application {
 	private static Preferences preferences = Preferences.userNodeForPackage(PlaasBestuur.class);
 	private static String currentUser;
 	private static LifecycleService lifecycle;
-	private static StorageService storage;
+//	private static StorageService storage;
 
 	public static void main(String[] args) {
 		PlaasBestuur.launch(args);
@@ -31,7 +30,8 @@ public class PlaasBestuur extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		lifecycle = Services.get(LifecycleService.class).get();
-		storage = Services.get(StorageService.class).get();
+//		storage = Services.get(StorageService.class).get();
+		Storage.init();
 		Screen.init();
 		
 		PlaasBestuur.stage = stage;
@@ -87,10 +87,6 @@ public class PlaasBestuur extends Application {
 	
 	public static void exit() {
 		lifecycle.shutdown();
-	}
-	
-	public static StorageService getStorage() {
-		return storage;
 	}
 	
 }

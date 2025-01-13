@@ -10,6 +10,7 @@ import koossa.plaasbestuur.PlaasBestuur;
 import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
 import koossa.plaasbestuur.utils.Language;
+import koossa.plaasbestuur.utils.Storage;
 
 public class DebugViewController {
 	
@@ -27,15 +28,13 @@ public class DebugViewController {
 		viewChooser.setItems(FXCollections.observableArrayList(FxmlViewNames.values()));
 		languageChooser.setItems(FXCollections.observableArrayList(Language.values()));
 		languageChooser.setValue(FxmlViewManager.getCurrentLanguage());
-		if (PlaasBestuur.getStorage().getPrivateStorage().isPresent()) {
-			private_lbl.setText(PlaasBestuur.getStorage().getPrivateStorage().get().getAbsolutePath());
+		
+		private_lbl.setText(Storage.getPrivateFolder().getAbsolutePath());
+		
+		if (Storage.isPublicStorageAvailable()) {
+			public_lbl.setText(Storage.getPublicFolder().getAbsolutePath());
 		} else {
-			private_lbl.setText("Not available");
-		}
-		if (PlaasBestuur.getStorage().isExternalStorageWritable()) {
-			public_lbl.setText(PlaasBestuur.getStorage().getPublicStorage("Documents").get().getAbsolutePath());
-		} else {
-			public_lbl.setText("Not available");
+			public_lbl.setText("Not available. Using private storage");
 		}
 		
 		
