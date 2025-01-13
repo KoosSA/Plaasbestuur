@@ -3,10 +3,8 @@ package koossa.plaasbestuur;
 import java.util.prefs.Preferences;
 
 import com.gluonhq.attach.connectivity.ConnectivityService;
-import com.gluonhq.attach.display.DisplayService;
 import com.gluonhq.attach.lifecycle.LifecycleService;
 import com.gluonhq.attach.storage.StorageService;
-import com.gluonhq.attach.util.Platform;
 import com.gluonhq.attach.util.Services;
 
 import javafx.application.Application;
@@ -15,6 +13,7 @@ import javafx.stage.Stage;
 import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
 import koossa.plaasbestuur.utils.Language;
+import koossa.plaasbestuur.utils.Screen;
 
 public class PlaasBestuur extends Application {
 	
@@ -24,7 +23,6 @@ public class PlaasBestuur extends Application {
 	private static String currentUser;
 	private static LifecycleService lifecycle;
 	private static StorageService storage;
-	private static DisplayService display;
 	private static ConnectivityService connectivity;
 
 	public static void main(String[] args) {
@@ -35,7 +33,7 @@ public class PlaasBestuur extends Application {
 	public void start(Stage stage) throws Exception {
 		lifecycle = Services.get(LifecycleService.class).get();
 		storage = Services.get(StorageService.class).get();
-		display = Services.get(DisplayService.class).get();
+		Screen.init();
 		Services.get(ConnectivityService.class).ifPresent(service -> {
 			connectivity = service;
 		});
@@ -59,12 +57,13 @@ public class PlaasBestuur extends Application {
 		currentView = viewName;
 		Scene sc = FxmlViewManager.getScene(viewName);
 		stage.setScene(sc);
-		if (!Platform.isDesktop()) {
-			stage.setWidth(display.getDefaultDimensions().getWidth());
-			stage.setHeight(display.getDefaultDimensions().getHeight());
-			stage.setMaxWidth(display.getDefaultDimensions().getWidth());
-			stage.setMaximized(true);
-		}
+//		if (!Platform.isDesktop()) {
+//			stage.setWidth(display.getDefaultDimensions().getWidth());
+//			stage.setHeight(display.getDefaultDimensions().getHeight());
+//			stage.setMaxWidth(display.getDefaultDimensions().getWidth());
+//			stage.setMaximized(true);
+//		}
+		Screen.fitToScreenIfMobile(stage);
 		stage.centerOnScreen();
 		
 	}
@@ -102,7 +101,4 @@ public class PlaasBestuur extends Application {
 		return storage;
 	}
 	
-	public static DisplayService getDisplay() {
-		return display;
-	}
 }
