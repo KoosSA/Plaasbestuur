@@ -153,7 +153,23 @@
   },{
     "pattern":"\\Qjavafx_font.dll\\E"
   },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\cow2.png\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\goat.png\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\pig2.png\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\racehorse.png\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\ram.png\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\water_buffalo.png\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\zebra_face.png\\E"
+  },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/debugView.fxml\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/livestock\/livestockView.fxml\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/locationsEditView.fxml\\E"
   },{

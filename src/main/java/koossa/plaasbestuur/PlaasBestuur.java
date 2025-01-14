@@ -3,6 +3,7 @@ package koossa.plaasbestuur;
 import java.util.prefs.Preferences;
 
 import com.gluonhq.attach.lifecycle.LifecycleService;
+import com.gluonhq.attach.util.Platform;
 import com.gluonhq.attach.util.Services;
 
 import javafx.application.Application;
@@ -48,6 +49,10 @@ public class PlaasBestuur extends Application {
 		Scene sc = FxmlViewManager.getScene(viewName);
 		stage.setScene(sc);
 		Screen.fitToScreenIfMobile(stage);
+		if (Platform.isDesktop()) {
+			stage.setWidth(800);
+			stage.setHeight(600);
+		}
 		stage.centerOnScreen();
 		
 	}
