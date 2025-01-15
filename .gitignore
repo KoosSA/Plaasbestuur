@@ -4,3 +4,7 @@
 /vscmd.bat
 /Data/
 /gradle.properties
+/KoosSA.jks
+/gradle.secrets
+/wslsetup.bat
+/android.sh
