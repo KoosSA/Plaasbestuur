@@ -11,12 +11,14 @@ public class Screen {
 	private static double width, height, scale, resX, resY;
 	
 	public static void init() {
-		Services.get(DisplayService.class).ifPresent(ds -> {
+		Services.get(DisplayService.class).ifPresentOrElse(ds -> {
 			width = ds.getDefaultDimensions().getWidth();
 			height = ds.getDefaultDimensions().getHeight();
 			scale = ds.getScreenScale();
 			resX = ds.getScreenResolution().getWidth();
 			resY = ds.getScreenResolution().getHeight();
+		}, () -> {
+			System.err.println("Display service not present.");
 		});
 	}
 	

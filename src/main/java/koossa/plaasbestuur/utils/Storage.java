@@ -11,7 +11,7 @@ public class Storage {
 	private static boolean publicAvailable = false;
 	
 	public static void init() {
-		Services.get(StorageService.class).ifPresent(ss -> {
+		Services.get(StorageService.class).ifPresentOrElse(ss -> {
 			ss.getPrivateStorage().ifPresent(priv -> {
 				privateFolder = priv;
 			});
@@ -21,8 +21,11 @@ public class Storage {
 					publicFolder = store;
 				});
 			} else {
+				System.err.println("External storage not writable");
 				publicFolder = privateFolder;
 			}
+		}, () -> {
+			System.err.println("Storage service not present");
 		});
 	}
 
