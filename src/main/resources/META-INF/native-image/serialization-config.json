@@ -16,6 +16,9 @@
       "name":"java.util.HashMap"
     },
     {
+      "name":"koossa.plaasbestuur.data.livestock.LivestockManager"
+    },
+    {
       "name":"koossa.plaasbestuur.data.rain.RainEntry"
     },
     {

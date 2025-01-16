@@ -169,6 +169,8 @@
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/debugView.fxml\\E"
   },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/livestock\/livestockTypeView.fxml\\E"
+  },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/livestock\/livestockView.fxml\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/locationsEditView.fxml\\E"
