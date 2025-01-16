@@ -5,7 +5,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.FlowPane;
 import koossa.plaasbestuur.PlaasBestuur;
+import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
 
 public class RegisterViewController {
@@ -20,6 +22,12 @@ public class RegisterViewController {
 	Label passwordHelper;
 	@FXML
 	Button register_btn;
+	@FXML
+	FlowPane pane;
+	
+	public void initialize() {
+		pane.setBackground(FxmlViewManager.getBackground());
+	}
 	
 	public void onCancel() {
 		PlaasBestuur.switchView(FxmlViewNames.LOGIN_VIEW);

@@ -8,6 +8,12 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import koossa.plaasbestuur.PlaasBestuur;
 
 public class FxmlViewManager {
@@ -15,6 +21,7 @@ public class FxmlViewManager {
 	private static Map<FxmlViewNames, Scene> views = new HashMap<FxmlViewNames, Scene>();
 	private static Language selectedLang = Language.ENGLISH_UK;
 	private static ResourceBundle bundle = ResourceBundle.getBundle("koossa/plaasbestuur/lang/" + selectedLang.getData());
+	private static Background background = new Background(new BackgroundImage(new Image(PlaasBestuur.class.getResource("/koossa/plaasbestuur/images/agtergrond.jpg").toString()), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(1, 1, true, true, false, false)));
 	
 	private static <T> Scene loadView(String name) throws IOException {
 		Scene scn = null;
@@ -56,6 +63,10 @@ public class FxmlViewManager {
 	
 	public static ResourceBundle getLanguageBundle() {
 		return bundle;
+	}
+	
+	public static Background getBackground() {
+		return background;
 	}
 
 }
