@@ -59,6 +59,14 @@ public class PlaasBestuur extends Application {
 		
 	}
 	
+	public static void switchView(Scene scene, FxmlViewNames viewName) {
+		currentView = viewName;
+		stage.setScene(scene);
+		Screen.fitToScreenIfMobile(stage);
+		stage.centerOnScreen();
+		
+	}
+	
 	public static void setLanguage(Language language) {
 		if (FxmlViewManager.getCurrentLanguage() == language) {
 			return;

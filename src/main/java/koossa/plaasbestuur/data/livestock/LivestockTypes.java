@@ -2,6 +2,9 @@ package koossa.plaasbestuur.data.livestock;
 
 import java.net.URL;
 
+import koossa.plaasbestuur.PlaasBestuur;
+import koossa.plaasbestuur.utils.FxmlViewManager;
+
 public enum LivestockTypes {
 	
 	SHEEP("sheep", "ram.png"),
@@ -22,11 +25,11 @@ public enum LivestockTypes {
 	}
 	
 	public String getName() {
-		return name;
+		return FxmlViewManager.getLanguageBundle().getString(name);
 	}
 	
 	public URL getImageURI() {
-		return getClass().getResource("..\\..\\images\\livestock\\" + image);
+		return PlaasBestuur.class.getResource("/koossa/plaasbestuur/images/livestock/" + image);
 	}
 
 }

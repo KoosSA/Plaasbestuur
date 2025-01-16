@@ -1,6 +1,7 @@
 package koossa.plaasbestuur.fxml.livestock;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.image.ImageView;
@@ -22,10 +23,16 @@ public class LivestockViewController {
 	@FXML
 	FlowPane flowPane;
 	
+	private Scene typeViewScene;
+	
 	public void initialize() {
+		UserData.getLivestockData().load();
+		typeViewScene = FxmlViewManager.getScene(FxmlViewNames.LIVESTOCK_TYPE_VIEW);
 		for (int i = 0; i < LivestockTypes.values().length; i++) {
 			LivestockTypes type = LivestockTypes.values()[i];
-			Button btn = new Button(FxmlViewManager.getLanguageBundle().getString(type.getName()));
+//			System.out.println("Animaltype: " + type + "Name: " + type.getName() + "Img: " + type.getImageURI());
+			Button btn = new Button(type.getName());
+//			System.out.println("Btn: " + btn);
 			btn.setPrefWidth(75);
 			btn.setPrefHeight(75);
 			btn.setTextAlignment(TextAlignment.CENTER);
@@ -35,6 +42,10 @@ public class LivestockViewController {
 			img.setFitHeight(30);
 			btn.setGraphic(img);
 			btn.setContentDisplay(ContentDisplay.TOP);
+			btn.setOnAction(event -> {
+				LivestockTypeViewController.setAnimalType(type);
+				PlaasBestuur.switchView(typeViewScene, FxmlViewNames.LIVESTOCK_TYPE_VIEW);
+			});
 		}
 	}
 	
@@ -50,6 +61,7 @@ public class LivestockViewController {
 		Screen.fitToScreenIfMobile(pop);
 		pop.centerOnScreen();
 		pop.showAndWait();
+		LivestockTypeViewController.updateLocations();
 	}
 	
 	public void onMainMenu() {

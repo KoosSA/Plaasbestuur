@@ -38,5 +38,13 @@ public class LivestockEntry {
 		return birthDate.until(LocalDate.now()).getYears();
 	}
 	
+	public String getBrand() {
+		return brand;
+	}
+	
+	public String getRace() {
+		return race;
+	}
+	
 	
 }

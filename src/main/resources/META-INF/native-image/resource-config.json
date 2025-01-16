@@ -189,6 +189,20 @@
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/registerView.fxml\\E"
   },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/images\/livestock\/cow2.png\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/images\/livestock\/goat.png\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/images\/livestock\/pig2.png\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/images\/livestock\/racehorse.png\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/images\/livestock\/ram.png\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/images\/livestock\/water_buffalo.png\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/images\/livestock\/zebra_face.png\\E"
+  },{
     "pattern":"\\Qkoossa\/plaasbestuur\/lang\/eng_uk.properties\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/lang\/eng_uk_en.properties\\E"

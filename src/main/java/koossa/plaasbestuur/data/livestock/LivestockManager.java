@@ -5,10 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import koossa.plaasbestuur.data.utils.Savable;
 import koossa.plaasbestuur.utils.ILocationsManager;
 
-public class LivestockManager implements ILocationsManager {
+public class LivestockManager extends Savable<Object> implements ILocationsManager {
 	
+	private static final long serialVersionUID = 5715700442463198018L;
 	//Stores all livestock in format: typeOfAnimal -> Location -> List of animals
 	private Map<LivestockTypes, Map<String, List<LivestockEntry>>> allLivestock = new HashMap<LivestockTypes, Map<String,List<LivestockEntry>>>();
 	private List<String> locations = new ArrayList<String>();
@@ -37,7 +39,9 @@ public class LivestockManager implements ILocationsManager {
 		return list;
 	}
 
-	
+	public Map<LivestockTypes, Map<String, List<LivestockEntry>>> getAllLivestock() {
+		return allLivestock;
+	}
 	
 	@Override
 	public boolean addLocation(String location) {
@@ -81,6 +85,12 @@ public class LivestockManager implements ILocationsManager {
 			an.setLocation(newName);
 			allLivestock.get(an.getAnimalType()).get(newName).add(an);
 		});
+	}
+
+	@Override
+	protected void onLoad(Object loaded) {
+		this.locations = getClass().cast(loaded).getLocations();
+		this.allLivestock = getClass().cast(loaded).getAllLivestock();
 	}
 
 	
