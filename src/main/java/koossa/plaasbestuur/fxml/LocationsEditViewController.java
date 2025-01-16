@@ -27,6 +27,8 @@ public class LocationsEditViewController {
 		LocationsEditViewController.instance = this;
 	}
 	
+	//FIXME Add title and content text to popup
+	//LOOKAT Add translation to text.
 	public void onAdd() {
 		TextInputDialog tid = new TextInputDialog();
 		Optional<String> loc = tid.showAndWait();

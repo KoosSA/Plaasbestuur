@@ -11,6 +11,7 @@ import koossa.plaasbestuur.PlaasBestuur;
 import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
 
+//LOOKAT Change language from here and store language preference
 public class LoginViewController {
 	
 	@FXML

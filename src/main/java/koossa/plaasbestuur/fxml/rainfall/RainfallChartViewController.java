@@ -19,6 +19,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 import koossa.plaasbestuur.data.rain.ChartIntervals;
 
+//LOOKAT Add translation to time intervals on chart
 public class RainfallChartViewController {
 	
 	@FXML
