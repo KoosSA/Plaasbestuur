@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
@@ -22,10 +23,13 @@ public class LivestockViewController {
 	
 	@FXML
 	FlowPane flowPane;
+	@FXML
+	AnchorPane pane;
 	
 	private Scene typeViewScene;
 	
 	public void initialize() {
+		pane.setBackground(FxmlViewManager.getBackground());
 		UserData.getLivestockData().load();
 		typeViewScene = FxmlViewManager.getScene(FxmlViewNames.LIVESTOCK_TYPE_VIEW);
 		for (int i = 0; i < LivestockTypes.values().length; i++) {

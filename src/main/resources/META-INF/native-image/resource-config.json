@@ -133,6 +133,8 @@
   },{
     "pattern":"\\Qcom\/sun\/prism\/d3d\/hlsl\/FillRoundRect_Color.obj\\E"
   },{
+    "pattern":"\\Qcom\/sun\/prism\/d3d\/hlsl\/FillRoundRect_LinearGradient_PAD.obj\\E"
+  },{
     "pattern":"\\Qcom\/sun\/prism\/d3d\/hlsl\/Mask_TextureSuper.obj\\E"
   },{
     "pattern":"\\Qcom\/sun\/prism\/d3d\/hlsl\/Solid_TextureFirstPassLCD.obj\\E"

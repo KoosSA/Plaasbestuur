@@ -1,0 +1,29 @@
+.scroll-pane .viewport {
+	-fx-background-color: transparent;
+}
+
+.scroll-pane {
+	-fx-background-color: transparent;
+}
+
+.button {
+	-fx-background-radius: 10px;
+}
+
+.flow-pane {
+	-fx-background-color: #cccccccc;
+	-fx-border-width: 2;
+	-fx-border-color: #000000ff;
+}
+
+.vbox {
+    -fx-background-color: #cccccccc;
+    -fx-border-width: 2;
+	-fx-border-color: #000000ff;
+}
+
+.listview {
+	-fx-background-color: #cccccccc;
+	-fx-border-width: 2;
+	-fx-border-color: #000000ff;
+}

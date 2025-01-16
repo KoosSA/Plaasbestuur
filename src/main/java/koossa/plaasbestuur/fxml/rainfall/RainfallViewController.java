@@ -16,6 +16,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
@@ -34,6 +35,8 @@ public class RainfallViewController {
 	Scene scene;
 	@FXML
 	ListView<RainEntry> entry_container;
+	@FXML
+	AnchorPane pane;
 	
 	private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	private ObservableList<RainEntry> entries = FXCollections.observableArrayList();
@@ -48,6 +51,7 @@ public class RainfallViewController {
 	private String filterLocation;
 	
 	public void initialize() {
+		pane.setBackground(FxmlViewManager.getBackground());
 		UserData.getRainfallData().load();
 		RainfallViewController.instance = this;
 		try {
