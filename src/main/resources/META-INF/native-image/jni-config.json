@@ -6,9 +6,6 @@
   "type":"[Lcom.sun.glass.ui.Screen;"
 },
 {
-  "type":"com.sun.glass.ui.Application"
-},
-{
   "type":"com.sun.glass.ui.Cursor",
   "methods":[{"name":"getNativeCursor","parameterTypes":[] },{"name":"getType","parameterTypes":[] }]
 },
@@ -93,12 +90,36 @@
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
+  "type":"com.sun.javafx.iio.common.ImageLoaderImpl",
+  "methods":[{"name":"emitWarning","parameterTypes":["java.lang.String"] }]
+},
+{
+  "type":"com.sun.javafx.iio.common.ImageLoaderImpl",
+  "methods":[{"name":"emitWarning","parameterTypes":["java.lang.String"] }]
+},
+{
+  "type":"com.sun.javafx.iio.jpeg.JPEGImageLoader",
+  "methods":[{"name":"setInputAttributes","parameterTypes":["int","int","int","int","int","byte[]"] },{"name":"setOutputAttributes","parameterTypes":["int","int"] },{"name":"updateImageProgress","parameterTypes":["int"] }]
+},
+{
+  "type":"com.sun.javafx.iio.jpeg.JPEGImageLoader",
+  "methods":[{"name":"setInputAttributes","parameterTypes":["int","int","int","int","int","byte[]"] },{"name":"setOutputAttributes","parameterTypes":["int","int"] },{"name":"updateImageProgress","parameterTypes":["int"] }]
+},
+{
   "type":"com.sun.prism.impl.PrismSettings",
   "fields":[{"name":"disableD3D9Ex"},{"name":"forceGPU"},{"name":"isVsyncEnabled"},{"name":"verbose"}]
 },
 {
   "type":"com.sun.prism.impl.PrismSettings",
   "fields":[{"name":"disableD3D9Ex"},{"name":"forceGPU"},{"name":"isVsyncEnabled"},{"name":"verbose"}]
+},
+{
+  "type":"java.io.InputStream",
+  "methods":[{"name":"read","parameterTypes":["byte[]","int","int"] },{"name":"skip","parameterTypes":["long"] }]
+},
+{
+  "type":"java.io.InputStream",
+  "methods":[{"name":"read","parameterTypes":["byte[]","int","int"] },{"name":"skip","parameterTypes":["long"] }]
 },
 {
   "type":"java.lang.Boolean",

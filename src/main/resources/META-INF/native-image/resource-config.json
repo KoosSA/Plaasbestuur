@@ -153,19 +153,7 @@
   },{
     "pattern":"\\Qjavafx_font.dll\\E"
   },{
-    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\cow2.png\\E"
-  },{
-    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\goat.png\\E"
-  },{
-    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\pig2.png\\E"
-  },{
-    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\racehorse.png\\E"
-  },{
-    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\ram.png\\E"
-  },{
-    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\water_buffalo.png\\E"
-  },{
-    "pattern":"\\Qkoossa\/plaasbestuur\/data\/livestock\/..\\..\\images\\livestock\\zebra_face.png\\E"
+    "pattern":"\\Qjavafx_iio.dll\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/debugView.fxml\\E"
   },{
@@ -191,9 +179,13 @@
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/registerView.fxml\\E"
   },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/images\/agtergrond.jpg\\E"
+  },{
     "pattern":"\\Qkoossa\/plaasbestuur\/images\/livestock\/cow2.png\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/images\/livestock\/goat.png\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/images\/livestock\/horse.png\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/images\/livestock\/pig2.png\\E"
   },{
@@ -203,7 +195,11 @@
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/images\/livestock\/water_buffalo.png\\E"
   },{
-    "pattern":"\\Qkoossa\/plaasbestuur\/images\/livestock\/zebra_face.png\\E"
+    "pattern":"\\Qkoossa\/plaasbestuur\/lang\/afr.properties\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/lang\/afr_en.properties\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/lang\/afr_en_ZA.properties\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/lang\/eng_uk.properties\\E"
   },{
@@ -277,15 +273,11 @@
   },{
     "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/replacements\/arraycopy\/HotSpotArraycopySnippets.class\\E"
   },{
-    "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/CreateExceptionStub.class\\E"
-  },{
     "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/ExceptionHandlerStub.class\\E"
   },{
     "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/ForeignCallSnippets.class\\E"
   },{
     "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/IntrinsicStubsGen.class\\E"
-  },{
-    "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/NullPointerExceptionStub.class\\E"
   },{
     "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/UnwindExceptionToCallerStub.class\\E"
   },{
@@ -332,6 +324,9 @@
     "locales":["en-ZA"]
   },{
     "name":"com\/sun\/javafx\/scene\/control\/skin\/resources\/controls-nt",
+    "locales":["en-ZA"]
+  },{
+    "name":"koossa\/plaasbestuur\/lang\/afr",
     "locales":["en-ZA"]
   },{
     "name":"koossa\/plaasbestuur\/lang\/eng_uk",
