@@ -11,7 +11,7 @@ public enum LivestockTypes {
 	PIGS("pigs", "pig2.png"),
 	CATTLE("cattle", "cow2.png"),
 	GOATS("goats", "goat.png"),
-	DONKEYS("donkeys", "zebra_face.png"),
+	DONKEYS("donkeys", "horse.png"),
 	BUFFALOS("buffalos", "water_buffalo.png"),
 	HORSES("horses", "racehorse.png");
 	
