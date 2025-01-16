@@ -28,13 +28,7 @@ public class PlaasBestuur extends Application {
 	
 	@Override
 	public void start(Stage stage) throws Exception {
-		Services.get(LifecycleService.class).ifPresentOrElse(serv -> {
-			lifecycle = serv;
-		}, () -> {
-			System.err.println("Lifecycle service not present.");
-		});
-		Storage.init();
-		Screen.init();
+		
 		
 		PlaasBestuur.stage = stage;
 		
@@ -46,6 +40,14 @@ public class PlaasBestuur extends Application {
 		stage.centerOnScreen();
 		stage.toFront();
 		stage.requestFocus();
+		
+		Services.get(LifecycleService.class).ifPresentOrElse(serv -> {
+			lifecycle = serv;
+		}, () -> {
+			System.err.println("Lifecycle service not present.");
+		});
+		Storage.init();
+		Screen.init();
 	}
 	
 	public static void switchView(FxmlViewNames viewName) {
