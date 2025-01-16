@@ -4,4 +4,10 @@
 /vscmd.bat
 /Data/
 /gradle.properties
+<<<<<<< HEAD
+=======
+/KoosSA.jks
+/gradle.secrets
+/wslsetup.bat
+>>>>>>> branch 'cattle' of https://github.com/KoosSA/Plaasbestuur
 /android.sh

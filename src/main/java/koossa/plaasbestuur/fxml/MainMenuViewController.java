@@ -13,8 +13,8 @@ public class MainMenuViewController {
 		PlaasBestuur.switchView(FxmlViewNames.DEBUG_VIEW);
 	}
 	
-	public void onCattle() {
-		
+	public void onLiveStock() {
+		PlaasBestuur.switchView(FxmlViewNames.LIVESTOCK_VIEW);
 	}
 	
 	public void onRainfall() {
