@@ -49,7 +49,7 @@ gluonfx {
         // Android
         appLabel = "Plaasbestuur"
         versionCode = codeNumber
-        versionName = versionMajor + '.' + versionMinor + '.' + versionPatch
+        versionName = versionNumber
         providedKeyStorePath = "${System.env.GLUON_ANDROID_KEYSTOREPATH}"
         providedKeyStorePassword = "${System.env.GLUON_ANDROID_KEYSTORE_PASSWORD}"
         providedKeyAlias = "${System.env.GLUON_ANDROID_KEYALIAS}"
@@ -62,4 +62,72 @@ gluonfx {
         // providedProvisioningProfile = ""
         // skipSigning = false
     }
+}
+
+
+task('bumpVersion') {
+	//toBump = 'Patch'
+    doLast {
+	    if (project.hasProperty('toBump')) {
+	        toBump = project.getProperty('toBump')
+	    } else {
+	    	toBump = 'Patch'
+	    }
+        String type = toBump
+        println "Bumping ${type.toLowerCase()} version…"
+        int oldVCode = project.getProperty('codeNumber').toInteger()
+        String oldVersionName = project.getProperty('versionNumber')
+        version = new Version(oldVCode, oldVersionName)
+        version."bump$type"()
+        String newVersionName = version.getName()
+        String newVersionCode = version.getCode()
+        println "$oldVersionName ($oldVCode) -> $newVersionName ($newVersionCode)"
+        def updated = file('gradle.properties').getText()
+        updated = updated.replaceFirst("versionNumber=$oldVersionName", "versionNumber=$newVersionName")
+        updated = updated.replaceFirst("codeNumber=$oldVCode", "codeNumber=$newVersionCode")
+        
+        file('gradle.properties').setText(updated)
+    }
+}
+
+
+
+
+
+
+
+class Version {
+    private int major
+    private int minor
+    private int patch
+    private int code
+    Version(int code, String version) {
+        this.code = code
+        def (major, minor, patch) = version.tokenize('.')
+        this.major = major.toInteger()
+        this.minor = minor.toInteger()
+        this.patch = patch.toInteger()
+    }
+    @SuppressWarnings("unused")
+    void bumpMajor() {
+        major += 1
+        minor = 0
+        patch = 0
+
+        code += 1
+    }
+    @SuppressWarnings("unused")
+    void bumpMinor() {
+        minor += 1
+        patch = 0
+
+        code += 1
+    }
+    @SuppressWarnings("unused")
+    void bumpPatch() {
+        patch += 1
+        code += 1
+    }
+    String getName() { "$major.$minor.$patch" }
+    int getCode() { code }
 }
