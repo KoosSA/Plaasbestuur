@@ -3,6 +3,9 @@ package koossa.plaasbestuur.fxml;
 import java.util.prefs.BackingStoreException;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -10,8 +13,9 @@ import javafx.scene.layout.FlowPane;
 import koossa.plaasbestuur.PlaasBestuur;
 import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
+import koossa.plaasbestuur.utils.Screen;
 
-//LOOKAT Change language from here and store language preference
+//TODO Change language from here and store language preference
 public class LoginViewController {
 	
 	@FXML
@@ -41,7 +45,19 @@ public class LoginViewController {
 	}
 	
 	public void onLogin() {
-		if (username_field.getText().length() > 0 && password_field.getText().length() > 0) {
+		if (PlaasBestuur.getPreferences().get("db_username", null) == null) {
+			Alert err = new Alert(AlertType.INFORMATION);
+			//LOOKAT Add translations
+			err.setTitle("Login failed");
+			err.setHeaderText("Please register the user first.");
+			err.setContentText("Register the app using the button below before logging in.");
+			Screen.fitToWidthIfMobile(username_field.getScene().getWindow());
+			err.showAndWait().ifPresent(action -> {
+				if (action == ButtonType.OK) {
+					onRegister();
+				}
+			});
+		} else if (username_field.getText().length() > 0 && password_field.getText().length() > 0) {
 			if (username_field.getText().equals(PlaasBestuur.getPreferences().get("db_username", null)) && password_field.getText().equals(PlaasBestuur.getPreferences().get("db_password", null))) {
 				PlaasBestuur.getPreferences().putBoolean("rememberCredentials", rememberCredentials_check.isSelected());
 				try {
