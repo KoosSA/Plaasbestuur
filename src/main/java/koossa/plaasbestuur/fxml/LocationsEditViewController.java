@@ -27,10 +27,12 @@ public class LocationsEditViewController {
 		LocationsEditViewController.instance = this;
 	}
 	
-	//FIXME Add title and content text to popup
 	//LOOKAT Add translation to text.
 	public void onAdd() {
 		TextInputDialog tid = new TextInputDialog();
+		tid.setTitle("Add location:");
+		tid.setHeaderText("Please enter a location to add.");
+		tid.setContentText("Location to add:");
 		Optional<String> loc = tid.showAndWait();
 		if (loc.isPresent()) {
 			locManager.addLocation(loc.get());
@@ -88,6 +90,9 @@ public class LocationsEditViewController {
 	
 	public static void setStage(Stage stage) {
 		instance.stage = stage;
+		stage.setOnCloseRequest(event -> {
+			instance.onSave();
+		});
 	}
 
 }
