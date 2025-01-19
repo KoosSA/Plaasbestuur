@@ -29,6 +29,7 @@ import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
 import koossa.plaasbestuur.utils.Screen;
 
+//LOOKAT Add edit of rainfall entries
 public class RainfallViewController {
 	
 	@FXML
