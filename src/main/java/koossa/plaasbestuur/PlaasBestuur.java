@@ -8,6 +8,7 @@ import com.gluonhq.attach.util.Services;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
@@ -29,9 +30,8 @@ public class PlaasBestuur extends Application {
 	
 	@Override
 	public void start(Stage stage) throws Exception {
-		
-		
 		PlaasBestuur.stage = stage;
+		stage.getIcons().add(new Image(this.getClass().getResourceAsStream("icons/icon.png")));
 		
 		switchView(FxmlViewNames.LOGIN_VIEW);
 		
