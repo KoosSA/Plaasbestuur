@@ -9,7 +9,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.AnchorPane;
 import koossa.plaasbestuur.PlaasBestuur;
 import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
@@ -25,7 +25,7 @@ public class LoginViewController {
 	@FXML
 	CheckBox rememberCredentials_check;
 	@FXML
-	FlowPane pane;
+	AnchorPane pane;
 	
 	public void initialize() {
 		pane.setBackground(FxmlViewManager.getBackground());
