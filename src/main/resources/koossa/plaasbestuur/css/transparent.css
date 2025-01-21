@@ -27,3 +27,20 @@
 	-fx-border-width: 2;
 	-fx-border-color: #000000ff;
 }
+
+.backgroundAnchorPane {
+	-fx-background-image: url("../images/agtergrond.jpg");
+	-fx-border-width: 2;
+	-fx-border-color: #000000ff;
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: center;
+	-fx-background-size: cover;
+}
+
+.labelDecorated {
+	-fx-border-width: 2;
+	-fx-border-color: #000000ff;
+	-fx-background-color: #cccccccc;
+	-fx-border-radius: 20;
+	-fx-background-radius: 20;
+}
