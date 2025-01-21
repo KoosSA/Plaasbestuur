@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
@@ -17,41 +18,67 @@
 
 <Scene xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koossa.plaasbestuur.fxml.RegisterViewController">
    <root>
-      <FlowPane fx:id="pane" alignment="CENTER">
+      <AnchorPane fx:id="pane">
          <children>
-            <BorderPane style="-fx-background-color: #ccccccdd; -fx-border-width: 2; -fx-border-color: #000000ff;">
-               <top>
-                  <FlowPane alignment="CENTER" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label text="%registerTitle">
+            <VBox alignment="CENTER" fillWidth="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <BorderPane style="-fx-background-color: #ccccccdd; -fx-border-width: 2; -fx-border-color: #000000ff;">
+                     <top>
+                        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="%registerTitle" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                     </children>
-                  </FlowPane>
-               </top>
-               <center>
-                  <VBox BorderPane.alignment="CENTER">
-                     <BorderPane.margin>
-                        <Insets bottom="15.0" left="5.0" right="5.0" top="25.0" />
-                     </BorderPane.margin>
-                     <children>
-                        <GridPane alignment="CENTER" hgap="10.0" vgap="15.0">
-                          <columnConstraints>
-                            <ColumnConstraints />
-                            <ColumnConstraints />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints />
-                            <RowConstraints />
-                            <RowConstraints />
-                              <RowConstraints />
-                              <RowConstraints />
-                              <RowConstraints />
-                          </rowConstraints>
+                     </top>
+                     <center>
+                        <VBox fillWidth="false" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets bottom="15.0" left="5.0" right="5.0" top="25.0" />
+                           </BorderPane.margin>
                            <children>
-                              <Button mnemonicParsing="false" onAction="#onCancel" prefHeight="35.0" prefWidth="75.0" text="%cancel" GridPane.halignment="LEFT" GridPane.rowIndex="5">
+                              <GridPane alignment="CENTER" hgap="10.0" vgap="15.0">
+                                <columnConstraints>
+                                  <ColumnConstraints />
+                                  <ColumnConstraints />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints />
+                                  <RowConstraints />
+                                  <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="%username">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="%password" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="%password" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="username_field" promptText="%username" GridPane.columnIndex="1" />
+                                    <PasswordField fx:id="password_field1" onKeyTyped="#onPasswordChangeListener" promptText="%password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <PasswordField fx:id="password_field2" onKeyTyped="#onPasswordChangeListener" promptText="%password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </center>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <bottom>
+                        <FlowPane alignment="CENTER" hgap="35.0" prefWrapLength="180.0" vgap="35.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#onCancel" prefHeight="35.0" prefWidth="75.0" text="%cancel">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -59,44 +86,18 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="register_btn" disable="true" mnemonicParsing="false" onAction="#onRegister" prefHeight="35.0" prefWidth="75.0" text="%register" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                              <Button fx:id="register_btn" disable="true" mnemonicParsing="false" onAction="#onRegister" prefHeight="35.0" prefWidth="75.0" text="%register">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Label text="%username">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label text="%password" GridPane.rowIndex="1">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label text="%password" GridPane.rowIndex="2">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="username_field" promptText="%username" GridPane.columnIndex="1" />
-                              <PasswordField fx:id="password_field1" onKeyTyped="#onPasswordChangeListener" promptText="%password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <PasswordField fx:id="password_field2" onKeyTyped="#onPasswordChangeListener" promptText="%password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label fx:id="passwordHelper" text="%passmatch" textFill="RED" visible="false" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.rowIndex="3">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
                            </children>
-                        </GridPane>
-                     </children>
-                  </VBox>
-               </center>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </BorderPane>
+                        </FlowPane>
+                     </bottom>
+                  </BorderPane>
+               </children>
+            </VBox>
          </children>
-      </FlowPane>
+      </AnchorPane>
    </root>
 </Scene>

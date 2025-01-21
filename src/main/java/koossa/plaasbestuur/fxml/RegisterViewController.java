@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.AnchorPane;
 import koossa.plaasbestuur.PlaasBestuur;
 import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
@@ -23,7 +23,7 @@ public class RegisterViewController {
 	@FXML
 	Button register_btn;
 	@FXML
-	FlowPane pane;
+	AnchorPane pane;
 	
 	public void initialize() {
 		pane.setBackground(FxmlViewManager.getBackground());
