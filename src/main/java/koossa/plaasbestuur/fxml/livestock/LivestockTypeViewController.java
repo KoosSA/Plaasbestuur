@@ -38,12 +38,12 @@ public class LivestockTypeViewController {
 	
 	public void onAdd() {
 		// TODO Auto-generated method stub
-
+		UserData.getLivestockData().save();
 	}
 	
 	public void onDeleteEntry() {
 		// TODO Auto-generated method stub
-
+		UserData.getLivestockData().save();
 	}
 	
 	public void onFilter() {
@@ -52,7 +52,8 @@ public class LivestockTypeViewController {
 	}
 	
 	private void onChangeLocation(String newLocation) {
-		
+		//TODO Auto-generated method stub
+		UserData.getLivestockData().save();
 	}
 	
 	public void onLivestock() {

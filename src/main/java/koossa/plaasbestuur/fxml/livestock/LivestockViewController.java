@@ -66,6 +66,7 @@ public class LivestockViewController {
 		pop.centerOnScreen();
 		pop.showAndWait();
 		LivestockTypeViewController.updateLocations();
+		UserData.getLivestockData().save();
 	}
 	
 	public void onMainMenu() {
