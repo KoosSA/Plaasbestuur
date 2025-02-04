@@ -15,7 +15,8 @@ public enum FxmlViewNames {
 	RAINFALL_STATS_VIEW("rainfall/rainfallStatsView.fxml"),
 	//Livestock
 	LIVESTOCK_TYPE_VIEW("livestock/livestockTypeView.fxml"),
-	LIVESTOCK_VIEW("livestock/livestockView.fxml");
+	LIVESTOCK_VIEW("livestock/livestockView.fxml"), 
+	LIVESTOCK_NEW_ENTRY_VIEW("livestock/livestockNewEntryView.fxml");
 	;
 	
 
