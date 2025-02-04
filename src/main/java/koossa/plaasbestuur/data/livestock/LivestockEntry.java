@@ -1,10 +1,14 @@
 package koossa.plaasbestuur.data.livestock;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
-public class LivestockEntry {
+public class LivestockEntry implements Serializable {
+	
+	private static final long serialVersionUID = 649525297284854248L;
+	
 	
 	private LocalDate birthDate;
 	private LocalDate deathDate;
@@ -12,12 +16,26 @@ public class LivestockEntry {
 	private String brand;
 	private String gender;
 	private String race;
-	private int id;
+	private long id;
 	private LivestockTypes animalType;
 	private String location;
 	private Map<LocalDate, String> injections;
 	private List<Integer> childrenIds;
 	
+	
+	
+	public LivestockEntry(LocalDate birthDate, boolean alive, String brand, String gender,
+			String race, LivestockTypes animalType, String location) {
+		this.birthDate = birthDate;
+		this.alive = alive;
+		this.brand = brand;
+		this.gender = gender;
+		this.race = race;
+		this.animalType = animalType;
+		this.location = location;
+		this.id = LivestockManager.generateNewId();
+	}
+
 	public LivestockTypes getAnimalType() {
 		return animalType;
 	}
@@ -44,6 +62,10 @@ public class LivestockEntry {
 	
 	public String getRace() {
 		return race;
+	}
+	
+	public String getGender() {
+		return gender;
 	}
 	
 	

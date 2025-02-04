@@ -48,6 +48,7 @@ public class LivestockViewController {
 			btn.setContentDisplay(ContentDisplay.TOP);
 			btn.setOnAction(event -> {
 				LivestockTypeViewController.setAnimalType(type);
+				LivestockTypeViewController.updateEntriesStatic(null);
 				PlaasBestuur.switchView(typeViewScene, FxmlViewNames.LIVESTOCK_TYPE_VIEW);
 			});
 		}
