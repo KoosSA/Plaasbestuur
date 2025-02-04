@@ -68,5 +68,8 @@ public class LivestockEntry implements Serializable {
 		return gender;
 	}
 	
+	public long getId() {
+		return id;
+	}
 	
 }

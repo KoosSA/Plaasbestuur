@@ -143,4 +143,8 @@ public class LivestockManager extends Savable<Object> implements ILocationsManag
 			allLivestock.get(animalType).put(location, new ArrayList<LivestockEntry>());
 		}
 	}
+
+	public boolean removeLivestockEntry(LivestockEntry entry) {
+		return allLivestock.get(entry.getAnimalType()).get(entry.getLocation()).remove(entry);
+	}
 }

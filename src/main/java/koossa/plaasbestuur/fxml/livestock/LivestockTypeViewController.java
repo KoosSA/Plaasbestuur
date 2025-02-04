@@ -1,20 +1,27 @@
 package koossa.plaasbestuur.fxml.livestock;
 
-import java.time.LocalDate;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import koossa.plaasbestuur.PlaasBestuur;
 import koossa.plaasbestuur.data.livestock.LivestockEntry;
 import koossa.plaasbestuur.data.livestock.LivestockTypes;
 import koossa.plaasbestuur.data.utils.UserData;
 import koossa.plaasbestuur.fxml.livestock.util.ListEntryElement;
+import koossa.plaasbestuur.utils.FxmlViewManager;
 import koossa.plaasbestuur.utils.FxmlViewNames;
+import koossa.plaasbestuur.utils.Screen;
 
 public class LivestockTypeViewController {
 
@@ -22,6 +29,7 @@ public class LivestockTypeViewController {
 	private LivestockTypes type;
 	private ObservableList<String> locations;
 	private ObservableList<ListEntryElement> entries = FXCollections.observableArrayList();
+	private Scene newEntryScene;
 	@FXML
 	Label title_lbl;
 	@FXML
@@ -31,6 +39,7 @@ public class LivestockTypeViewController {
 
 	public void initialize() {
 		instance = this;
+		newEntryScene = FxmlViewManager.getScene(FxmlViewNames.LIVESTOCK_NEW_ENTRY_VIEW);
 		locations = FXCollections.observableArrayList();
 		locations.addAll(UserData.getLivestockData().getLocations());
 		location_cbox.setItems(locations);
@@ -54,21 +63,50 @@ public class LivestockTypeViewController {
 			});
 		}
 	}
+	
+	public void onEditTypeGenders() {
+		//FIXME Add gender editor
+	}
+	
+	public void onEditTypeRaces() {
+		//FIXME Add race editor
+	}
 
 	public void onAdd() {
-		LivestockEntry entry = new LivestockEntry(LocalDate.now(), true, "test", "Koei", "Afrikaner", type, "Hoekblok");
-		UserData.getLivestockData().addAnimalEntry(entry);
-		entries.add(new ListEntryElement(entry));
-		
-		
-		
-		// TODO Auto-generated method stub
-		UserData.getLivestockData().save();
+		Stage pop = new Stage();
+		pop.setScene(newEntryScene);
+		pop.initModality(Modality.APPLICATION_MODAL);
+		pop.initOwner(title_lbl.getScene().getWindow());
+		pop.initStyle(StageStyle.UTILITY);
+		pop.centerOnScreen();
+		pop.requestFocus();
+		pop.toFront();
+		Screen.fitToScreenIfMobile(pop);
+		LivestockNewEntryViewController.setType(type);
+		pop.showAndWait();
 	}
 
 	public void onDeleteEntry() {
-		// TODO Auto-generated method stub
-		UserData.getLivestockData().save();
+		ListEntryElement toremove = entry_container.getSelectionModel().getSelectedItem();
+		if (toremove != null) {
+			Alert deletionAlert = new Alert(AlertType.CONFIRMATION);
+			deletionAlert.setHeaderText(FxmlViewManager.getLanguageBundle().getString("confirmDelete") + toremove.getEntry().getRace() + " @ " + toremove.getEntry().getLocation() + ": " + toremove.getEntry().getBrand());
+			deletionAlert.setContentText(FxmlViewManager.getLanguageBundle().getString("livestockEntryDeleteConfirm"));
+			Screen.fitToWidthIfMobile(deletionAlert.getDialogPane().getScene().getWindow());
+			if (deletionAlert.showAndWait().get().getButtonData() == ButtonData.OK_DONE) {
+				
+				if (UserData.getLivestockData().removeLivestockEntry(toremove.getEntry())) {
+					int index = entry_container.getSelectionModel().getSelectedIndex();
+					if (index != -1) {
+						entries.remove(index);
+						entry_container.getSelectionModel().clearSelection();
+					}
+					onFilter();
+				}
+				
+				UserData.getLivestockData().save();
+			}
+		}
 	}
 
 	public void onFilter() {
@@ -98,5 +136,11 @@ public class LivestockTypeViewController {
 	
 	public static void updateEntriesStatic(String location) {
 		instance.updateEntries(location);
+	}
+	
+	protected static void addNewEntry(LivestockEntry newEntry) {
+		UserData.getLivestockData().addAnimalEntry(newEntry);
+		instance.entries.add(new ListEntryElement(newEntry));
+		UserData.getLivestockData().save();
 	}
 }

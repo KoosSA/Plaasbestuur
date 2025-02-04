@@ -16,7 +16,6 @@ public class ListEntryElement extends HBox {
 		this.age_lbl = new Label("Age: " + Integer.toString(entry.getAgeYears()));
 		this.race_lbl = new Label(entry.getRace() + " - " + entry.getGender());
 		this.location_lbl = new Label("@ " + entry.getLocation());
-		
 		this.getChildren().addAll(name_lbl, race_lbl, age_lbl, location_lbl);
 		this.setSpacing(10);
 		this.setAlignment(Pos.TOP_CENTER);
