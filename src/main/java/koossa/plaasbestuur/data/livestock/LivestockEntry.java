@@ -2,6 +2,7 @@ package koossa.plaasbestuur.data.livestock;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -82,6 +83,9 @@ public class LivestockEntry implements Serializable {
 	}
 	
 	public List<Long> getChildrenIds() {
+		if (childrenIds == null) {
+			childrenIds = new ArrayList<Long>();
+		}
 		return childrenIds;
 	}
 	
