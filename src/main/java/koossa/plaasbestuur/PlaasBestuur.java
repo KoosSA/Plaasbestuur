@@ -36,6 +36,10 @@ public class PlaasBestuur extends Application {
 		switchView(FxmlViewNames.LOGIN_VIEW);
 		
 		stage.setTitle(FxmlViewManager.getLanguageBundle().getString("appTitle"));
+		if (Platform.isDesktop()) {
+			stage.setWidth(800);
+			stage.setHeight(600);
+		}
 		
 		stage.show();
 		stage.centerOnScreen();
@@ -56,10 +60,10 @@ public class PlaasBestuur extends Application {
 		Scene sc = FxmlViewManager.getScene(viewName);
 		stage.setScene(sc);
 		Screen.fitToScreenIfMobile(stage);
-		if (Platform.isDesktop()) {
-			stage.setWidth(800);
-			stage.setHeight(600);
-		}
+//		if (Platform.isDesktop()) {
+//			stage.setWidth(800);
+//			stage.setHeight(600);
+//		}
 		stage.centerOnScreen();
 		
 	}
