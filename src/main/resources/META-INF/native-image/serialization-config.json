@@ -1,6 +1,15 @@
 {
   "types":[
     {
+      "name":"java.lang.Enum"
+    },
+    {
+      "name":"java.lang.Long"
+    },
+    {
+      "name":"java.lang.Number"
+    },
+    {
       "name":"java.lang.String"
     },
     {
@@ -16,7 +25,16 @@
       "name":"java.util.HashMap"
     },
     {
+      "name":"koossa.plaasbestuur.data.livestock.AnimalUtilData"
+    },
+    {
+      "name":"koossa.plaasbestuur.data.livestock.LivestockEntry"
+    },
+    {
       "name":"koossa.plaasbestuur.data.livestock.LivestockManager"
+    },
+    {
+      "name":"koossa.plaasbestuur.data.livestock.LivestockTypes"
     },
     {
       "name":"koossa.plaasbestuur.data.rain.RainEntry"

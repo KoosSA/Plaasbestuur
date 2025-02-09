@@ -99,6 +99,8 @@
   },{
     "pattern":"\\Qcom\/sun\/glass\/ui\/win\/themes_en.properties\\E"
   },{
+    "pattern":"\\Qcom\/sun\/glass\/ui\/win\/themes_en_GB.properties\\E"
+  },{
     "pattern":"\\Qcom\/sun\/glass\/ui\/win\/themes_en_ZA.properties\\E"
   },{
     "pattern":"\\Qcom\/sun\/glass\/utils\/NativeLibLoader.class\\E"
@@ -109,17 +111,23 @@
   },{
     "pattern":"\\Qcom\/sun\/javafx\/scene\/control\/skin\/resources\/controls-nt_en.properties\\E"
   },{
+    "pattern":"\\Qcom\/sun\/javafx\/scene\/control\/skin\/resources\/controls-nt_en_GB.properties\\E"
+  },{
     "pattern":"\\Qcom\/sun\/javafx\/scene\/control\/skin\/resources\/controls-nt_en_ZA.properties\\E"
   },{
     "pattern":"\\Qcom\/sun\/javafx\/scene\/control\/skin\/resources\/controls.properties\\E"
   },{
     "pattern":"\\Qcom\/sun\/javafx\/scene\/control\/skin\/resources\/controls_en.properties\\E"
   },{
+    "pattern":"\\Qcom\/sun\/javafx\/scene\/control\/skin\/resources\/controls_en_GB.properties\\E"
+  },{
     "pattern":"\\Qcom\/sun\/javafx\/scene\/control\/skin\/resources\/controls_en_ZA.properties\\E"
   },{
     "pattern":"\\Qcom\/sun\/javafx\/tk\/quantum\/QuantumMessagesBundle.properties\\E"
   },{
     "pattern":"\\Qcom\/sun\/javafx\/tk\/quantum\/QuantumMessagesBundle_en.properties\\E"
+  },{
+    "pattern":"\\Qcom\/sun\/javafx\/tk\/quantum\/QuantumMessagesBundle_en_GB.properties\\E"
   },{
     "pattern":"\\Qcom\/sun\/javafx\/tk\/quantum\/QuantumMessagesBundle_en_ZA.properties\\E"
   },{
@@ -159,6 +167,10 @@
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/debugView.fxml\\E"
   },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/livestock\/additionalDataEditView.fxml\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/livestock\/livestockNewEntryView.fxml\\E"
+  },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/livestock\/livestockTypeView.fxml\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/livestock\/livestockView.fxml\\E"
@@ -180,6 +192,8 @@
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/rainfall\/rainfallView.fxml\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/fxml\/registerView.fxml\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/icons\/icon.png\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/images\/agtergrond.jpg\\E"
   },{
@@ -206,6 +220,8 @@
     "pattern":"\\Qkoossa\/plaasbestuur\/lang\/eng_uk.properties\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/lang\/eng_uk_en.properties\\E"
+  },{
+    "pattern":"\\Qkoossa\/plaasbestuur\/lang\/eng_uk_en_GB.properties\\E"
   },{
     "pattern":"\\Qkoossa\/plaasbestuur\/lang\/eng_uk_en_ZA.properties\\E"
   },{
@@ -243,6 +259,8 @@
   },{
     "pattern":"java.logging:\\Qsun\/util\/logging\/resources\/logging_en.properties\\E"
   },{
+    "pattern":"java.logging:\\Qsun\/util\/logging\/resources\/logging_en_GB.properties\\E"
+  },{
     "pattern":"java.logging:\\Qsun\/util\/logging\/resources\/logging_en_ZA.properties\\E"
   },{
     "pattern":"java.xml:\\Qjdk\/xml\/internal\/jdkcatalog\/JDKCatalog.xml\\E"
@@ -275,11 +293,15 @@
   },{
     "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/replacements\/arraycopy\/HotSpotArraycopySnippets.class\\E"
   },{
+    "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/CreateExceptionStub.class\\E"
+  },{
     "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/ExceptionHandlerStub.class\\E"
   },{
     "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/ForeignCallSnippets.class\\E"
   },{
     "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/IntrinsicStubsGen.class\\E"
+  },{
+    "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/NullPointerExceptionStub.class\\E"
   },{
     "pattern":"jdk.graal.compiler:\\Qjdk\/graal\/compiler\/hotspot\/stubs\/UnwindExceptionToCallerStub.class\\E"
   },{
@@ -317,21 +339,21 @@
   }]},
   "bundles":[{
     "name":"com.sun.javafx.tk.quantum.QuantumMessagesBundle",
-    "locales":["en-ZA"]
+    "locales":["en-GB","en-ZA"]
   },{
     "name":"com\/sun\/glass\/ui\/win\/themes",
-    "locales":["en-ZA"]
+    "locales":["en-GB","en-ZA"]
   },{
     "name":"com\/sun\/javafx\/scene\/control\/skin\/resources\/controls",
-    "locales":["en-ZA"]
+    "locales":["en-GB","en-ZA"]
   },{
     "name":"com\/sun\/javafx\/scene\/control\/skin\/resources\/controls-nt",
-    "locales":["en-ZA"]
+    "locales":["en-GB","en-ZA"]
   },{
     "name":"koossa\/plaasbestuur\/lang\/afr",
     "locales":["en-ZA"]
   },{
     "name":"koossa\/plaasbestuur\/lang\/eng_uk",
-    "locales":["en-ZA"]
+    "locales":["en-GB","en-ZA"]
   }]
 }

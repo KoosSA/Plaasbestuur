@@ -6,6 +6,9 @@
   "type":"[Lcom.sun.glass.ui.Screen;"
 },
 {
+  "type":"com.sun.glass.ui.Application"
+},
+{
   "type":"com.sun.glass.ui.Cursor",
   "methods":[{"name":"getNativeCursor","parameterTypes":[] },{"name":"getType","parameterTypes":[] }]
 },
