@@ -13,7 +13,7 @@ public class ListEntryElement extends HBox {
 	public ListEntryElement(LivestockEntry entry) {
 		this.entry = entry;
 		this.name_lbl = new Label(entry.getBrand());
-		this.age_lbl = new Label("Age: " + Integer.toString(entry.getAgeYears()));
+		this.age_lbl = new Label("Age: " + Integer.toString(entry.getAgeYears()) + " year, " + Integer.toString(entry.getAgeMonths() - (entry.getAgeYears() * 12)) + " months");
 		this.race_lbl = new Label(entry.getRace() + " - " + entry.getGender());
 		this.location_lbl = new Label("@ " + entry.getLocation());
 		this.getChildren().addAll(name_lbl, race_lbl, age_lbl, location_lbl);

@@ -15,6 +15,18 @@ public class LivestockManager extends Savable<Object> implements ILocationsManag
 	//Stores all livestock in format: typeOfAnimal -> Location -> List of animals
 	private Map<LivestockTypes, Map<String, List<LivestockEntry>>> allLivestock = new HashMap<LivestockTypes, Map<String,List<LivestockEntry>>>();
 	private List<String> locations = new ArrayList<String>();
+	private Map<LivestockTypes, AnimalUtilData> additionalData = new HashMap<LivestockTypes, AnimalUtilData>();
+	
+	public AnimalUtilData getAdditionalDataOfType(LivestockTypes type) {
+		if (!additionalData.containsKey(type)) {
+			additionalData.put(type, new AnimalUtilData());
+		}
+		return additionalData.get(type);
+	}
+	
+	public Map<LivestockTypes, AnimalUtilData> getAdditionalData() {
+		return additionalData;
+	}
 	
 	public void addAnimalEntry(LivestockEntry entry) {
 		validateAnimalType(entry.getAnimalType());
@@ -76,6 +88,8 @@ public class LivestockManager extends Savable<Object> implements ILocationsManag
 		return allLivestock;
 	}
 	
+	
+	
 	@Override
 	public boolean addLocation(String location) {
 		if (location != null) {
@@ -124,6 +138,7 @@ public class LivestockManager extends Savable<Object> implements ILocationsManag
 	protected void onLoad(Object loaded) {
 		this.locations = getClass().cast(loaded).getLocations();
 		this.allLivestock = getClass().cast(loaded).getAllLivestock();
+		this.additionalData = getClass().cast(loaded).getAdditionalData();
 	}
 
 	public static long generateNewId() {
@@ -146,5 +161,16 @@ public class LivestockManager extends Savable<Object> implements ILocationsManag
 
 	public boolean removeLivestockEntry(LivestockEntry entry) {
 		return allLivestock.get(entry.getAnimalType()).get(entry.getLocation()).remove(entry);
+	}
+
+	public LivestockEntry getAnimalsOfTypeByBrand(LivestockTypes type, String brand) {
+		List <LivestockEntry> all = getAllAnimalsOfType(type);
+		for (int i = 0; i < all.size(); i++) {
+			LivestockEntry animal = all.get(i);
+			if (animal.getBrand().equals(brand)) {
+				return animal;
+			}
+		}
+		return null;
 	}
 }

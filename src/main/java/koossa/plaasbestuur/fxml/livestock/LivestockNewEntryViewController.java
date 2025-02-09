@@ -32,7 +32,7 @@ public class LivestockNewEntryViewController {
 	TextField brand_tf;
 	
 	private ObservableList<String> locations;
-	private ObservableList<String> types;
+//	private ObservableList<String> types;
 	private ObservableList<String> animalList;
 	private ObservableList<String> races;
 	private ObservableList<String> genders;
@@ -51,7 +51,7 @@ public class LivestockNewEntryViewController {
 		locations.addAll(UserData.getLivestockData().getLocations());
 		location_cb.setItems(locations);
 		birthDate_dp.setValue(LocalDate.now());
-		types = FXCollections.observableArrayList();
+//		types = FXCollections.observableArrayList();
 		type_cb.setDisable(true);
 //		for (int i = 0; i < LivestockTypes.values().length; i++) {
 //			types.add(LivestockTypes.values()[i].getName());
@@ -84,8 +84,10 @@ public class LivestockNewEntryViewController {
 		UserData.getLivestockData().getAllAnimalsOfType(type).forEach(a -> {
 			instance.animalList.add(a.getBrand());
 		});
-		instance.races.addAll(type.getUtilData().getRaces());
-		instance.genders.addAll(type.getUtilData().getGenders());
+		instance.races.addAll(UserData.getLivestockData().getAdditionalDataOfType(type).getRaces());
+		instance.genders.addAll(UserData.getLivestockData().getAdditionalDataOfType(type).getGenders());
+		instance.locations.clear();
+		instance.locations.addAll(UserData.getLivestockData().getLocations());
 	}
 
 	public void onCancel() {
@@ -96,6 +98,13 @@ public class LivestockNewEntryViewController {
 		if (isValuesPresent()) {
 			if (isValuesValid(type) && type != null) {
 				LivestockEntry newEntry = new LivestockEntry(birthDate_dp.getValue(), true, brand_tf.getText(), gender_cb.getValue(), race_cb.getValue(), type, location_cb.getValue());
+				if (mother_cb.getValue() == null) {
+					newEntry.setMotherId(-1000);
+				} else {
+					LivestockEntry mother = UserData.getLivestockData().getAnimalsOfTypeByBrand(type, mother_cb.getValue());
+					newEntry.setMotherId(mother.getId());
+					mother.getChildrenIds().add(newEntry.getId());
+				}
 				LivestockTypeViewController.addNewEntry(newEntry);
 				((Stage) gender_cb.getScene().getWindow()).close();
 			}
@@ -120,9 +129,9 @@ public class LivestockNewEntryViewController {
 		if (location_cb.getValue() == null) {
 			return false;
 		}
-		if (mother_cb.getValue() == null) {
-			return false;
-		}
+//		if (mother_cb.getValue() == null) {
+//			return false;
+//		}
 		if (gender_cb.getValue() == null) {
 			return false;
 		}

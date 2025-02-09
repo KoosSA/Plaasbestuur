@@ -18,12 +18,10 @@ public enum LivestockTypes {
 	
 	private String image;
 	private String name;
-	private AnimalUtilData utilData;
 	
 	LivestockTypes(String name, String imageName) {
 		this.name = name;
 		this.image = imageName;
-		this.utilData = new AnimalUtilData();
 	}
 	
 	public String getName() {
@@ -32,10 +30,6 @@ public enum LivestockTypes {
 	
 	public URL getImageURI() {
 		return PlaasBestuur.class.getResource("/koossa/plaasbestuur/images/livestock/" + image);
-	}
-	
-	public AnimalUtilData getUtilData() {
-		return utilData;
 	}
 
 }

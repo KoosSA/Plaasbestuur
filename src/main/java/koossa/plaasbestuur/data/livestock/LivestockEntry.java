@@ -20,7 +20,8 @@ public class LivestockEntry implements Serializable {
 	private LivestockTypes animalType;
 	private String location;
 	private Map<LocalDate, String> injections;
-	private List<Integer> childrenIds;
+	private List<Long> childrenIds;
+	private long motherId;
 	
 	
 	
@@ -34,6 +35,14 @@ public class LivestockEntry implements Serializable {
 		this.animalType = animalType;
 		this.location = location;
 		this.id = LivestockManager.generateNewId();
+	}
+	
+	public long getMotherId() {
+		return motherId;
+	}
+	
+	public void setMotherId(long motherId) {
+		this.motherId = motherId;
 	}
 
 	public LivestockTypes getAnimalType() {
@@ -70,6 +79,10 @@ public class LivestockEntry implements Serializable {
 	
 	public long getId() {
 		return id;
+	}
+	
+	public List<Long> getChildrenIds() {
+		return childrenIds;
 	}
 	
 }

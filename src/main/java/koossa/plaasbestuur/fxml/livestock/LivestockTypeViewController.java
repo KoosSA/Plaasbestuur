@@ -30,6 +30,7 @@ public class LivestockTypeViewController {
 	private ObservableList<String> locations;
 	private ObservableList<ListEntryElement> entries = FXCollections.observableArrayList();
 	private Scene newEntryScene;
+	private Scene addDataEditScene;
 	@FXML
 	Label title_lbl;
 	@FXML
@@ -40,6 +41,7 @@ public class LivestockTypeViewController {
 	public void initialize() {
 		instance = this;
 		newEntryScene = FxmlViewManager.getScene(FxmlViewNames.LIVESTOCK_NEW_ENTRY_VIEW);
+		addDataEditScene = FxmlViewManager.getScene(FxmlViewNames.ADDITIONAL_DATA_EDIT_VIEW);
 		locations = FXCollections.observableArrayList();
 		locations.addAll(UserData.getLivestockData().getLocations());
 		location_cbox.setItems(locations);
@@ -66,10 +68,32 @@ public class LivestockTypeViewController {
 	
 	public void onEditTypeGenders() {
 		//FIXME Add gender editor
+		Stage pop = new Stage(StageStyle.UTILITY);
+		pop.initOwner(title_lbl.getScene().getWindow());
+		pop.initModality(Modality.APPLICATION_MODAL);
+		pop.setScene(addDataEditScene);
+		AdditionalDataEditViewController.setCurrentEditorType(type, "gender");
+		pop.setAlwaysOnTop(true);
+		Screen.fitToScreenIfMobile(pop);
+		pop.setOnCloseRequest(event -> {
+			UserData.getLivestockData().save();
+		});
+		pop.showAndWait();
 	}
 	
 	public void onEditTypeRaces() {
 		//FIXME Add race editor
+		Stage pop = new Stage(StageStyle.UTILITY);
+		pop.initOwner(title_lbl.getScene().getWindow());
+		pop.initModality(Modality.APPLICATION_MODAL);
+		pop.setScene(addDataEditScene);
+		AdditionalDataEditViewController.setCurrentEditorType(type, "race");
+		pop.setAlwaysOnTop(true);
+		Screen.fitToScreenIfMobile(pop);
+		pop.setOnCloseRequest(event -> {
+			UserData.getLivestockData().save();
+		});
+		pop.showAndWait();
 	}
 
 	public void onAdd() {
@@ -81,7 +105,7 @@ public class LivestockTypeViewController {
 		pop.centerOnScreen();
 		pop.requestFocus();
 		pop.toFront();
-		Screen.fitToScreenIfMobile(pop);
+		Screen.fitToWidthIfMobile(pop);
 		LivestockNewEntryViewController.setType(type);
 		pop.showAndWait();
 	}

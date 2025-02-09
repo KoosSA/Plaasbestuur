@@ -16,7 +16,8 @@ public enum FxmlViewNames {
 	//Livestock
 	LIVESTOCK_TYPE_VIEW("livestock/livestockTypeView.fxml"),
 	LIVESTOCK_VIEW("livestock/livestockView.fxml"), 
-	LIVESTOCK_NEW_ENTRY_VIEW("livestock/livestockNewEntryView.fxml");
+	LIVESTOCK_NEW_ENTRY_VIEW("livestock/livestockNewEntryView.fxml"),
+	ADDITIONAL_DATA_EDIT_VIEW("livestock/additionalDataEditView.fxml");
 	;
 	
 
